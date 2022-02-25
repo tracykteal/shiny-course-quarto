@@ -2,13 +2,14 @@ project:
   type: book
 
 book:
-  title: "shinygs"
-  author: "Jane Doe"
+  title: "Shiny Getting Started"
+  author: "Mine Çetinkaya-Rundel"
   date: "2/25/2022"
   chapters:
     - index.qmd
     - intro.qmd
-    - summary.qmd
+    - hello.qmd
+    - flow.qmd
     - references.qmd
 
 bibliography: references.bib

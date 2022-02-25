@@ -1,6 +1,3 @@
----
-
----
 
 # Hello Shiny
 
@@ -137,16 +134,9 @@ Alright, time for some practice!
 
 ### Practice: What's in an app?
 
-
-Which of these is not generally a part of the Shiny app architecture?"
-- A function that installs an R package
-- User interface
-- Server function
-- A function that creates Shiny app objects
+Which of these is not generally a part of the Shiny app architecture?" - A function that installs an R package - User interface - Server function - A function that creates Shiny app objects
 
 Answer: A function that installs an R package. You don't want to reinstall the package every time you run your app, so you should do this once in your console instead of within your Shiny app
-
-
 
 ### Practice: First peek under the hood
 
@@ -786,9 +776,7 @@ fluidPage(
 )
 ```
 
-#```{r, context = "server", eval = TRUE}
-# output$user_text <- renderText({ input$custom_text })
-# ```
+\#`{r, context = "server", eval = TRUE} # output$user_text <- renderText({ input$custom_text }) #`
 
 ------------------------------------------------------------------------
 
@@ -819,18 +807,7 @@ server <- function(input, output, session){
 shinyApp(ui = ui, server = server)
 ```
 
-#```{r mc-2}
-#question("Which of the following is false?",
-#  answer('`[1]` should be `"Input some text here:"`',
-#         message = "Take a look at the app, what text is #shown to the user above the text input area?"),
-#  answer('`[2]` should be `textOutput`', 
-#         message = "Check out the Shiny cheatsheet for pairs #of input and output functions"),
-#  answer('`[3]` should be `"custom_text"`', correct = TRUE),
-#  answer('`[4]` should be `"custom_text"`',
-#         message = "What is the ID of the input that should #be rendered?"),
-#  allow_retry = TRUE
-#)
-#```
+\#`` {r mc-2} #question("Which of the following is false?", #  answer('`[1]` should be `"Input some text here:"`', #         message = "Take a look at the app, what text is #shown to the user above the text input area?"), #  answer('`[2]` should be `textOutput`',  #         message = "Check out the Shiny cheatsheet for pairs #of input and output functions"), #  answer('`[3]` should be `"custom_text"`', correct = TRUE), #  answer('`[4]` should be `"custom_text"`', #         message = "What is the ID of the input that should #be rendered?"), #  allow_retry = TRUE #) # ``
 
 ### Reactivity
 
@@ -858,19 +835,7 @@ Time to put this all into practice!
 
 Which of the following is not true about server functions?
 
-#```{r mc-3}
-#question("Which of the following is not true about server functions?",
-#  answer("Server functions should include a call to #`runApp()`",
-#    correct = TRUE,
-#    message = "The `runApp()` function can be used in the Console to run a Shiny application, as an alternative to the Run App button in the RStudio IDE."
-#  ),
-#  answer("Objects to be displayed should be saved to #`output$`"),
-#  answer("Reactive objects should be built with `render*()` functions"),
-#  answer("Input values should be referred to with `input$`"),
-#  allow_retry = TRUE,
-#  random_answer_order = TRUE
-#)
-#```
+\#`` {r mc-3} #question("Which of the following is not true about server functions?", #  answer("Server functions should include a call to #`runApp()`", #    correct = TRUE, #    message = "The `runApp()` function can be used in the Console to run a Shiny application, as an alternative to the Run App button in the RStudio IDE." #  ), #  answer("Objects to be displayed should be saved to #`output$`"), #  answer("Reactive objects should be built with `render*()` functions"), #  answer("Input values should be referred to with `input$`"), #  allow_retry = TRUE, #  random_answer_order = TRUE #) # ``
 
 ### Practice: Fix it up
 
