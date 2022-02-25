@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
   )
 ```
 
-## 2.1 Reactive flow
+## Reactive flow
 
 ### Reactivity, in spreadsheets
 
@@ -376,7 +376,7 @@ shinyApp(ui = ui, server = server)
 
 </details>
 
-## 2.2 UI Inputs
+## UI Inputs
 
 ### 
 
@@ -1100,7 +1100,7 @@ shinyApp(ui = ui, server = server)
 
 </details>
 
-## 2.3 `render*()` functions
+## `render*()` functions
 
 ### 
 
@@ -1543,7 +1543,7 @@ shinyApp(ui = ui, server = server)
 
 </details>
 
-## 2.4: UI outputs
+## UI outputs
 
 ### 
 
