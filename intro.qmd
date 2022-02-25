@@ -1,9 +1,7 @@
 # Introduction
 
-This is a book created from markdown and executable code.
+This tutorial comprised of four modules will introduce you to Shiny, the R package for building interactive web apps straight from R.
 
-See @knuth84 for additional discussion of literate programming.
+In this module, we'll begin by introducing the basics of Shiny.
 
-```{r}
-1 + 1
-```
+So, let's get to it...
