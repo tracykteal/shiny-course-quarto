@@ -1,8 +1,10 @@
 # Preface {.unnumbered}
 
-This is a Quarto book.
+This is Mine Çetinkaya-Rundel's Getting Started with Shiny course as a Quarto book.
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+You will see text.
+
+You will see code blocks like this.
 
 ```{r}
 1 + 1

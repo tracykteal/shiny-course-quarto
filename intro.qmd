@@ -2,6 +2,10 @@
 
 This tutorial comprised of four modules will introduce you to Shiny, the R package for building interactive web apps straight from R.
 
+## What you'll learn
+
 In this module, we'll begin by introducing the basics of Shiny.
 
 So, let's get to it...
+
+
