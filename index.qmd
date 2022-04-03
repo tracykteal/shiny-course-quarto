@@ -2,7 +2,7 @@
 
 This is Mine Çetinkaya-Rundel's Getting Started with Shiny course as a Quarto book.
 
-You will see text.
+You will see some text.
 
 You will see code blocks like this.
 
