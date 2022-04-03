@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="quarto-99.9.9">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Shiny Getting Started - 3&nbsp; Reactive Flow</title>
+  <title>Shiny Getting Started - 5&nbsp; Reactive Flow</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -84,7 +84,7 @@
   <script src="site_libs/quarto-search/fuse.min.js"></script>
   <script src="site_libs/quarto-search/quarto-search.js"></script>
   <link href="./reactivity.html" rel="next">
-  <link href="./hello.html" rel="prev">
+  <link href="./hello-recap.html" rel="prev">
   <script src="site_libs/quarto-html/quarto.js"></script>
   <script src="site_libs/quarto-html/popper.min.js"></script>
   <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -122,7 +122,7 @@
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reactive Flow</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reactive Flow</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -152,22 +152,52 @@
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Hello Shiny</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hello.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Started</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hello.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Hello Shiny</span></a>
+  <a href="./hello-ui.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">User interface (UI)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./flow.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reactive Flow</span></a>
+  <a href="./hello-server.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Server function</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reactivity.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">3: Reactivity essentials</span></a>
+  <a href="./hello-recap.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Recap</span></a>
+  </div>
+</li>
+    </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./flow.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reactive Flow</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reactivity.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Reactivity essentials</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ui.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Customizing UI</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -183,68 +213,68 @@
         <nav id="TOC" role="doc-toc">
 <h2 id="toc-title">Table of contents</h2>
 <ul>
-<li><a href="#reactive-flow" class="nav-link active" data-scroll-target="#reactive-flow"> <span class="header-section-number">3.1</span> Reactive flow</a>
+<li><a href="#reactive-flow" class="nav-link active" data-scroll-target="#reactive-flow"> <span class="header-section-number">5.1</span> Reactive flow</a>
 <ul class="collapse">
-<li><a href="#reactivity-in-spreadsheets" class="nav-link" data-scroll-target="#reactivity-in-spreadsheets"> <span class="header-section-number">3.1.1</span> Reactivity, in spreadsheets</a></li>
-<li><a href="#section" class="nav-link" data-scroll-target="#section"> <span class="header-section-number">3.1.2</span> </a></li>
-<li><a href="#section-1" class="nav-link" data-scroll-target="#section-1"> <span class="header-section-number">3.1.3</span> </a></li>
-<li><a href="#section-2" class="nav-link" data-scroll-target="#section-2"> <span class="header-section-number">3.1.4</span> </a></li>
-<li><a href="#section-3" class="nav-link" data-scroll-target="#section-3"> <span class="header-section-number">3.1.5</span> </a></li>
-<li><a href="#reactions" class="nav-link" data-scroll-target="#reactions"> <span class="header-section-number">3.1.6</span> Reactions</a></li>
-<li><a href="#reactivity-101" class="nav-link" data-scroll-target="#reactivity-101"> <span class="header-section-number">3.1.7</span> Reactivity 101</a></li>
-<li><a href="#reactive-flow-1" class="nav-link" data-scroll-target="#reactive-flow-1"> <span class="header-section-number">3.1.8</span> Reactive flow</a></li>
-<li><a href="#reactive-flow-simplified" class="nav-link" data-scroll-target="#reactive-flow-simplified"> <span class="header-section-number">3.1.9</span> Reactive flow, simplified</a></li>
-<li><a href="#practice-building-a-reactive-widget" class="nav-link" data-scroll-target="#practice-building-a-reactive-widget"> <span class="header-section-number">3.1.10</span> Practice: Building a reactive widget</a></li>
-<li><a href="#practice-dude-wheres-my-plot" class="nav-link" data-scroll-target="#practice-dude-wheres-my-plot"> <span class="header-section-number">3.1.11</span> Practice: Dude, where’s my plot?</a></li>
+<li><a href="#reactivity-in-spreadsheets" class="nav-link" data-scroll-target="#reactivity-in-spreadsheets"> <span class="header-section-number">5.1.1</span> Reactivity, in spreadsheets</a></li>
+<li><a href="#section" class="nav-link" data-scroll-target="#section"> <span class="header-section-number">5.1.2</span> </a></li>
+<li><a href="#section-1" class="nav-link" data-scroll-target="#section-1"> <span class="header-section-number">5.1.3</span> </a></li>
+<li><a href="#section-2" class="nav-link" data-scroll-target="#section-2"> <span class="header-section-number">5.1.4</span> </a></li>
+<li><a href="#section-3" class="nav-link" data-scroll-target="#section-3"> <span class="header-section-number">5.1.5</span> </a></li>
+<li><a href="#reactions" class="nav-link" data-scroll-target="#reactions"> <span class="header-section-number">5.1.6</span> Reactions</a></li>
+<li><a href="#reactivity-101" class="nav-link" data-scroll-target="#reactivity-101"> <span class="header-section-number">5.1.7</span> Reactivity 101</a></li>
+<li><a href="#reactive-flow-1" class="nav-link" data-scroll-target="#reactive-flow-1"> <span class="header-section-number">5.1.8</span> Reactive flow</a></li>
+<li><a href="#reactive-flow-simplified" class="nav-link" data-scroll-target="#reactive-flow-simplified"> <span class="header-section-number">5.1.9</span> Reactive flow, simplified</a></li>
+<li><a href="#practice-building-a-reactive-widget" class="nav-link" data-scroll-target="#practice-building-a-reactive-widget"> <span class="header-section-number">5.1.10</span> Practice: Building a reactive widget</a></li>
+<li><a href="#practice-dude-wheres-my-plot" class="nav-link" data-scroll-target="#practice-dude-wheres-my-plot"> <span class="header-section-number">5.1.11</span> Practice: Dude, where’s my plot?</a></li>
 </ul></li>
-<li><a href="#ui-inputs" class="nav-link" data-scroll-target="#ui-inputs"> <span class="header-section-number">3.2</span> UI Inputs</a>
+<li><a href="#ui-inputs" class="nav-link" data-scroll-target="#ui-inputs"> <span class="header-section-number">5.2</span> UI Inputs</a>
 <ul class="collapse">
-<li><a href="#section-4" class="nav-link" data-scroll-target="#section-4"> <span class="header-section-number">3.2.1</span> </a></li>
-<li><a href="#section-5" class="nav-link" data-scroll-target="#section-5"> <span class="header-section-number">3.2.2</span> </a></li>
-<li><a href="#section-6" class="nav-link" data-scroll-target="#section-6"> <span class="header-section-number">3.2.3</span> </a></li>
-<li><a href="#checkboxinput" class="nav-link" data-scroll-target="#checkboxinput"> <span class="header-section-number">3.2.4</span> checkboxInput</a></li>
-<li><a href="#ui-add-an-input-widget-that-the-user-can-interact-with-to-checkuncheck-the-box" class="nav-link" data-scroll-target="#ui-add-an-input-widget-that-the-user-can-interact-with-to-checkuncheck-the-box"> <span class="header-section-number">3.2.5</span> 1. <strong>ui</strong>: Add an input widget that the user can interact with to check/uncheck the box</a></li>
-<li><a href="#watch-for-commas" class="nav-link" data-scroll-target="#watch-for-commas"> <span class="header-section-number">3.2.6</span> Watch for commas!</a></li>
-<li><a href="#ui-add-an-output-to-the-ui-defining-where-the-data-table-should-appear." class="nav-link" data-scroll-target="#ui-add-an-output-to-the-ui-defining-where-the-data-table-should-appear."> <span class="header-section-number">3.2.7</span> 2. <strong>ui</strong>: Add an output to the UI defining where the data table should appear.</a></li>
-<li><a href="#server-add-a-reactive-expression-that-creates-the-data-table-if-the-checkbox-is-checked." class="nav-link" data-scroll-target="#server-add-a-reactive-expression-that-creates-the-data-table-if-the-checkbox-is-checked."> <span class="header-section-number">3.2.8</span> 3. <strong>server</strong>: Add a reactive expression that creates the data table if the checkbox is checked.</a></li>
-<li><a href="#section-7" class="nav-link" data-scroll-target="#section-7"> <span class="header-section-number">3.2.9</span> </a></li>
-<li><a href="#scoping" class="nav-link" data-scroll-target="#scoping"> <span class="header-section-number">3.2.10</span> Scoping</a></li>
-<li><a href="#practice-add-numericinput" class="nav-link" data-scroll-target="#practice-add-numericinput"> <span class="header-section-number">3.2.11</span> Practice: Add numericInput</a></li>
-<li><a href="#practice-req" class="nav-link" data-scroll-target="#practice-req"> <span class="header-section-number">3.2.12</span> Practice: req</a></li>
-<li><a href="#practice-select-to-selectize" class="nav-link" data-scroll-target="#practice-select-to-selectize"> <span class="header-section-number">3.2.13</span> Practice: Select to selectize</a></li>
-<li><a href="#practice-convert-dateinput-to-daterangeinput" class="nav-link" data-scroll-target="#practice-convert-dateinput-to-daterangeinput"> <span class="header-section-number">3.2.14</span> Practice: Convert <code>dateInput</code> to <code>dateRangeInput</code></a></li>
+<li><a href="#section-4" class="nav-link" data-scroll-target="#section-4"> <span class="header-section-number">5.2.1</span> </a></li>
+<li><a href="#section-5" class="nav-link" data-scroll-target="#section-5"> <span class="header-section-number">5.2.2</span> </a></li>
+<li><a href="#section-6" class="nav-link" data-scroll-target="#section-6"> <span class="header-section-number">5.2.3</span> </a></li>
+<li><a href="#checkboxinput" class="nav-link" data-scroll-target="#checkboxinput"> <span class="header-section-number">5.2.4</span> checkboxInput</a></li>
+<li><a href="#ui-add-an-input-widget-that-the-user-can-interact-with-to-checkuncheck-the-box" class="nav-link" data-scroll-target="#ui-add-an-input-widget-that-the-user-can-interact-with-to-checkuncheck-the-box"> <span class="header-section-number">5.2.5</span> 1. <strong>ui</strong>: Add an input widget that the user can interact with to check/uncheck the box</a></li>
+<li><a href="#watch-for-commas" class="nav-link" data-scroll-target="#watch-for-commas"> <span class="header-section-number">5.2.6</span> Watch for commas!</a></li>
+<li><a href="#ui-add-an-output-to-the-ui-defining-where-the-data-table-should-appear." class="nav-link" data-scroll-target="#ui-add-an-output-to-the-ui-defining-where-the-data-table-should-appear."> <span class="header-section-number">5.2.7</span> 2. <strong>ui</strong>: Add an output to the UI defining where the data table should appear.</a></li>
+<li><a href="#server-add-a-reactive-expression-that-creates-the-data-table-if-the-checkbox-is-checked." class="nav-link" data-scroll-target="#server-add-a-reactive-expression-that-creates-the-data-table-if-the-checkbox-is-checked."> <span class="header-section-number">5.2.8</span> 3. <strong>server</strong>: Add a reactive expression that creates the data table if the checkbox is checked.</a></li>
+<li><a href="#section-7" class="nav-link" data-scroll-target="#section-7"> <span class="header-section-number">5.2.9</span> </a></li>
+<li><a href="#scoping" class="nav-link" data-scroll-target="#scoping"> <span class="header-section-number">5.2.10</span> Scoping</a></li>
+<li><a href="#practice-add-numericinput" class="nav-link" data-scroll-target="#practice-add-numericinput"> <span class="header-section-number">5.2.11</span> Practice: Add numericInput</a></li>
+<li><a href="#practice-req" class="nav-link" data-scroll-target="#practice-req"> <span class="header-section-number">5.2.12</span> Practice: req</a></li>
+<li><a href="#practice-select-to-selectize" class="nav-link" data-scroll-target="#practice-select-to-selectize"> <span class="header-section-number">5.2.13</span> Practice: Select to selectize</a></li>
+<li><a href="#practice-convert-dateinput-to-daterangeinput" class="nav-link" data-scroll-target="#practice-convert-dateinput-to-daterangeinput"> <span class="header-section-number">5.2.14</span> Practice: Convert <code>dateInput</code> to <code>dateRangeInput</code></a></li>
 </ul></li>
-<li><a href="#render-functions" class="nav-link" data-scroll-target="#render-functions"> <span class="header-section-number">3.3</span> <code>render*()</code> functions</a>
+<li><a href="#render-functions" class="nav-link" data-scroll-target="#render-functions"> <span class="header-section-number">5.3</span> <code>render*()</code> functions</a>
 <ul class="collapse">
-<li><a href="#section-8" class="nav-link" data-scroll-target="#section-8"> <span class="header-section-number">3.3.1</span> </a></li>
-<li><a href="#section-9" class="nav-link" data-scroll-target="#section-9"> <span class="header-section-number">3.3.2</span> </a></li>
-<li><a href="#section-10" class="nav-link" data-scroll-target="#section-10"> <span class="header-section-number">3.3.3</span> </a></li>
-<li><a href="#section-11" class="nav-link" data-scroll-target="#section-11"> <span class="header-section-number">3.3.4</span> </a></li>
-<li><a href="#section-12" class="nav-link" data-scroll-target="#section-12"> <span class="header-section-number">3.3.5</span> </a></li>
-<li><a href="#rendertable" class="nav-link" data-scroll-target="#rendertable"> <span class="header-section-number">3.3.6</span> <code>renderTable</code></a></li>
-<li><a href="#calculate-the-new-variable." class="nav-link" data-scroll-target="#calculate-the-new-variable."> <span class="header-section-number">3.3.7</span> 1. Calculate the new variable.</a></li>
-<li><a href="#ui-add-an-input-widget-that-the-user-can-interact-with-to-check-boxes-for-selected-title-types." class="nav-link" data-scroll-target="#ui-add-an-input-widget-that-the-user-can-interact-with-to-check-boxes-for-selected-title-types."> <span class="header-section-number">3.3.8</span> 2. <strong>ui</strong>: Add an input widget that the user can interact with to check boxes for selected title types.</a></li>
-<li><a href="#ui-add-an-output-defining-where-the-summary-tables-should-appear." class="nav-link" data-scroll-target="#ui-add-an-output-defining-where-the-summary-tables-should-appear."> <span class="header-section-number">3.3.9</span> 3. <strong>ui</strong>: Add an output defining where the summary tables should appear.</a></li>
-<li><a href="#server-add-a-reactive-expression-that-creates-the-summary-table." class="nav-link" data-scroll-target="#server-add-a-reactive-expression-that-creates-the-summary-table."> <span class="header-section-number">3.3.10</span> 4. <strong>server</strong>: Add a reactive expression that creates the summary table.</a></li>
-<li><a href="#section-13" class="nav-link" data-scroll-target="#section-13"> <span class="header-section-number">3.3.11</span> </a></li>
-<li><a href="#section-14" class="nav-link" data-scroll-target="#section-14"> <span class="header-section-number">3.3.12</span> </a></li>
-<li><a href="#recap" class="nav-link" data-scroll-target="#recap"> <span class="header-section-number">3.3.13</span> Recap</a></li>
-<li><a href="#practice-missing-renderplot" class="nav-link" data-scroll-target="#practice-missing-renderplot"> <span class="header-section-number">3.3.14</span> Practice: Missing <code>renderPlot()</code></a></li>
-<li><a href="#practice-add-rendertext" class="nav-link" data-scroll-target="#practice-add-rendertext"> <span class="header-section-number">3.3.15</span> Practice: Add <code>renderText()</code></a></li>
+<li><a href="#section-8" class="nav-link" data-scroll-target="#section-8"> <span class="header-section-number">5.3.1</span> </a></li>
+<li><a href="#section-9" class="nav-link" data-scroll-target="#section-9"> <span class="header-section-number">5.3.2</span> </a></li>
+<li><a href="#section-10" class="nav-link" data-scroll-target="#section-10"> <span class="header-section-number">5.3.3</span> </a></li>
+<li><a href="#section-11" class="nav-link" data-scroll-target="#section-11"> <span class="header-section-number">5.3.4</span> </a></li>
+<li><a href="#section-12" class="nav-link" data-scroll-target="#section-12"> <span class="header-section-number">5.3.5</span> </a></li>
+<li><a href="#rendertable" class="nav-link" data-scroll-target="#rendertable"> <span class="header-section-number">5.3.6</span> <code>renderTable</code></a></li>
+<li><a href="#calculate-the-new-variable." class="nav-link" data-scroll-target="#calculate-the-new-variable."> <span class="header-section-number">5.3.7</span> 1. Calculate the new variable.</a></li>
+<li><a href="#ui-add-an-input-widget-that-the-user-can-interact-with-to-check-boxes-for-selected-title-types." class="nav-link" data-scroll-target="#ui-add-an-input-widget-that-the-user-can-interact-with-to-check-boxes-for-selected-title-types."> <span class="header-section-number">5.3.8</span> 2. <strong>ui</strong>: Add an input widget that the user can interact with to check boxes for selected title types.</a></li>
+<li><a href="#ui-add-an-output-defining-where-the-summary-tables-should-appear." class="nav-link" data-scroll-target="#ui-add-an-output-defining-where-the-summary-tables-should-appear."> <span class="header-section-number">5.3.9</span> 3. <strong>ui</strong>: Add an output defining where the summary tables should appear.</a></li>
+<li><a href="#server-add-a-reactive-expression-that-creates-the-summary-table." class="nav-link" data-scroll-target="#server-add-a-reactive-expression-that-creates-the-summary-table."> <span class="header-section-number">5.3.10</span> 4. <strong>server</strong>: Add a reactive expression that creates the summary table.</a></li>
+<li><a href="#section-13" class="nav-link" data-scroll-target="#section-13"> <span class="header-section-number">5.3.11</span> </a></li>
+<li><a href="#section-14" class="nav-link" data-scroll-target="#section-14"> <span class="header-section-number">5.3.12</span> </a></li>
+<li><a href="#recap" class="nav-link" data-scroll-target="#recap"> <span class="header-section-number">5.3.13</span> Recap</a></li>
+<li><a href="#practice-missing-renderplot" class="nav-link" data-scroll-target="#practice-missing-renderplot"> <span class="header-section-number">5.3.14</span> Practice: Missing <code>renderPlot()</code></a></li>
+<li><a href="#practice-add-rendertext" class="nav-link" data-scroll-target="#practice-add-rendertext"> <span class="header-section-number">5.3.15</span> Practice: Add <code>renderText()</code></a></li>
 </ul></li>
-<li><a href="#ui-outputs" class="nav-link" data-scroll-target="#ui-outputs"> <span class="header-section-number">3.4</span> UI outputs</a>
+<li><a href="#ui-outputs" class="nav-link" data-scroll-target="#ui-outputs"> <span class="header-section-number">5.4</span> UI outputs</a>
 <ul class="collapse">
-<li><a href="#section-15" class="nav-link" data-scroll-target="#section-15"> <span class="header-section-number">3.4.1</span> </a></li>
-<li><a href="#section-16" class="nav-link" data-scroll-target="#section-16"> <span class="header-section-number">3.4.2</span> </a></li>
-<li><a href="#section-17" class="nav-link" data-scroll-target="#section-17"> <span class="header-section-number">3.4.3</span> </a></li>
-<li><a href="#plotoutput" class="nav-link" data-scroll-target="#plotoutput"> <span class="header-section-number">3.4.4</span> <code>plotOutput()</code></a></li>
-<li><a href="#ui-add-functionality-to-plotoutput-to-select-points-via-brushing." class="nav-link" data-scroll-target="#ui-add-functionality-to-plotoutput-to-select-points-via-brushing."> <span class="header-section-number">3.4.5</span> 1. <strong>ui:</strong> Add functionality to <code>plotOutput</code> to select points via brushing.</a></li>
-<li><a href="#ui-add-an-output-defining-where-the-data-table-should-appear." class="nav-link" data-scroll-target="#ui-add-an-output-defining-where-the-data-table-should-appear."> <span class="header-section-number">3.4.6</span> 2. <strong>ui:</strong> Add an output defining where the data table should appear.</a></li>
-<li><a href="#server-add-a-reactive-expression-that-creates-the-data-table-for-the-selected-points." class="nav-link" data-scroll-target="#server-add-a-reactive-expression-that-creates-the-data-table-for-the-selected-points."> <span class="header-section-number">3.4.7</span> 3. <strong>server:</strong> Add a reactive expression that creates the data table for the selected points.</a></li>
-<li><a href="#practice---hovering" class="nav-link" data-scroll-target="#practice---hovering"> <span class="header-section-number">3.4.8</span> Practice - Hovering</a></li>
-<li><a href="#practice---displaying-text-outputs" class="nav-link" data-scroll-target="#practice---displaying-text-outputs"> <span class="header-section-number">3.4.9</span> Practice - Displaying text outputs</a></li>
-<li><a href="#practice---creating-and-formatting-html-output" class="nav-link" data-scroll-target="#practice---creating-and-formatting-html-output"> <span class="header-section-number">3.4.10</span> Practice - Creating and formatting HTML output</a></li>
-<li><a href="#practice---download-data-with-downloadbutton" class="nav-link" data-scroll-target="#practice---download-data-with-downloadbutton"> <span class="header-section-number">3.4.11</span> Practice - Download data with <code>downloadButton()</code></a></li>
+<li><a href="#section-15" class="nav-link" data-scroll-target="#section-15"> <span class="header-section-number">5.4.1</span> </a></li>
+<li><a href="#section-16" class="nav-link" data-scroll-target="#section-16"> <span class="header-section-number">5.4.2</span> </a></li>
+<li><a href="#section-17" class="nav-link" data-scroll-target="#section-17"> <span class="header-section-number">5.4.3</span> </a></li>
+<li><a href="#plotoutput" class="nav-link" data-scroll-target="#plotoutput"> <span class="header-section-number">5.4.4</span> <code>plotOutput()</code></a></li>
+<li><a href="#ui-add-functionality-to-plotoutput-to-select-points-via-brushing." class="nav-link" data-scroll-target="#ui-add-functionality-to-plotoutput-to-select-points-via-brushing."> <span class="header-section-number">5.4.5</span> 1. <strong>ui:</strong> Add functionality to <code>plotOutput</code> to select points via brushing.</a></li>
+<li><a href="#ui-add-an-output-defining-where-the-data-table-should-appear." class="nav-link" data-scroll-target="#ui-add-an-output-defining-where-the-data-table-should-appear."> <span class="header-section-number">5.4.6</span> 2. <strong>ui:</strong> Add an output defining where the data table should appear.</a></li>
+<li><a href="#server-add-a-reactive-expression-that-creates-the-data-table-for-the-selected-points." class="nav-link" data-scroll-target="#server-add-a-reactive-expression-that-creates-the-data-table-for-the-selected-points."> <span class="header-section-number">5.4.7</span> 3. <strong>server:</strong> Add a reactive expression that creates the data table for the selected points.</a></li>
+<li><a href="#practice---hovering" class="nav-link" data-scroll-target="#practice---hovering"> <span class="header-section-number">5.4.8</span> Practice - Hovering</a></li>
+<li><a href="#practice---displaying-text-outputs" class="nav-link" data-scroll-target="#practice---displaying-text-outputs"> <span class="header-section-number">5.4.9</span> Practice - Displaying text outputs</a></li>
+<li><a href="#practice---creating-and-formatting-html-output" class="nav-link" data-scroll-target="#practice---creating-and-formatting-html-output"> <span class="header-section-number">5.4.10</span> Practice - Creating and formatting HTML output</a></li>
+<li><a href="#practice---download-data-with-downloadbutton" class="nav-link" data-scroll-target="#practice---download-data-with-downloadbutton"> <span class="header-section-number">5.4.11</span> Practice - Download data with <code>downloadButton()</code></a></li>
 </ul></li>
 </ul>
 </nav>
@@ -253,12 +283,12 @@
 <main class="content" id="quarto-document-content">
 <header id="title-block-header" class="quarto-title-block default">
 
-<div class="quarto-title"><h1 class="title d-none d-lg-block display-7"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reactive Flow</span></h1></div></header>
+<div class="quarto-title"><h1 class="title d-none d-lg-block display-7"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reactive Flow</span></h1></div></header>
 
-<section id="reactive-flow" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="reactive-flow"><span class="header-section-number">3.1</span> Reactive flow</h2>
-<section id="reactivity-in-spreadsheets" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="reactivity-in-spreadsheets"><span class="header-section-number">3.1.1</span> Reactivity, in spreadsheets</h3>
+<section id="reactive-flow" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="reactive-flow"><span class="header-section-number">5.1</span> Reactive flow</h2>
+<section id="reactivity-in-spreadsheets" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="reactivity-in-spreadsheets"><span class="header-section-number">5.1.1</span> Reactivity, in spreadsheets</h3>
 <p>One familiar way of thinking about reactivity is to think in the context of a spreadsheet, like Google Sheets or Microsoft Excel.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -270,8 +300,8 @@
 </div>
 </div>
 </section>
-<section id="section" class="level3" data-number="3.1.2">
-<h3 data-number="3.1.2" class="anchored" data-anchor-id="section"><span class="header-section-number">3.1.2</span> </h3>
+<section id="section" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="section"><span class="header-section-number">5.1.2</span> </h3>
 <p>Suppose you write a value into a cell in a spreadsheet…</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -283,8 +313,8 @@
 </div>
 </div>
 </section>
-<section id="section-1" class="level3" data-number="3.1.3">
-<h3 data-number="3.1.3" class="anchored" data-anchor-id="section-1"><span class="header-section-number">3.1.3</span> </h3>
+<section id="section-1" class="level3" data-number="5.1.3">
+<h3 data-number="5.1.3" class="anchored" data-anchor-id="section-1"><span class="header-section-number">5.1.3</span> </h3>
 <p>and then in another cell you write a formula that depends on that cell.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -296,8 +326,8 @@
 </div>
 </div>
 </section>
-<section id="section-2" class="level3" data-number="3.1.4">
-<h3 data-number="3.1.4" class="anchored" data-anchor-id="section-2"><span class="header-section-number">3.1.4</span> </h3>
+<section id="section-2" class="level3" data-number="5.1.4">
+<h3 data-number="5.1.4" class="anchored" data-anchor-id="section-2"><span class="header-section-number">5.1.4</span> </h3>
 <p>First, the formula is calculated with the value you originally typed.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -309,8 +339,8 @@
 </div>
 </div>
 </section>
-<section id="section-3" class="level3" data-number="3.1.5">
-<h3 data-number="3.1.5" class="anchored" data-anchor-id="section-3"><span class="header-section-number">3.1.5</span> </h3>
+<section id="section-3" class="level3" data-number="5.1.5">
+<h3 data-number="5.1.5" class="anchored" data-anchor-id="section-3"><span class="header-section-number">5.1.5</span> </h3>
 <p>Now when you change the value of the original cell, the result of the formula will automatically update, or in other words, react to this change.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -322,8 +352,8 @@
 </div>
 </div>
 </section>
-<section id="reactions" class="level3" data-number="3.1.6">
-<h3 data-number="3.1.6" class="anchored" data-anchor-id="reactions"><span class="header-section-number">3.1.6</span> Reactions</h3>
+<section id="reactions" class="level3" data-number="5.1.6">
+<h3 data-number="5.1.6" class="anchored" data-anchor-id="reactions"><span class="header-section-number">5.1.6</span> Reactions</h3>
 <p>In a Shiny app reactivity happens in a similar fashion.</p>
 <p>Suppose you have a <code>sliderInput</code> in your app with the <code>inputId</code> of <code>alpha</code>. The value of this input is stored in <code>input$alpha</code>.</p>
 <div class="cell" data-layout-align="center">
@@ -337,8 +367,8 @@
 </div>
 <p>So when the user moves around the slider, the value of the alpha input is updated in the input list.</p>
 </section>
-<section id="reactivity-101" class="level3" data-number="3.1.7">
-<h3 data-number="3.1.7" class="anchored" data-anchor-id="reactivity-101"><span class="header-section-number">3.1.7</span> Reactivity 101</h3>
+<section id="reactivity-101" class="level3" data-number="5.1.7">
+<h3 data-number="5.1.7" class="anchored" data-anchor-id="reactivity-101"><span class="header-section-number">5.1.7</span> Reactivity 101</h3>
 <p>Reactivity automatically occurs when an input value is used to render an output object, i.e.&nbsp;in the <code>server</code> function below the plot is re-rendered when the value of <code>input$alpha</code> changes based on user input. You, as the app developer, do not need to write code that says <em>“Update the plot every time the value of <code>input$alpha</code> changes”</em>, Shiny automatically takes care of this for you in the <code>render*()</code> function.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -350,8 +380,8 @@
 </div>
 </div>
 </section>
-<section id="reactive-flow-1" class="level3" data-number="3.1.8">
-<h3 data-number="3.1.8" class="anchored" data-anchor-id="reactive-flow-1"><span class="header-section-number">3.1.8</span> Reactive flow</h3>
+<section id="reactive-flow-1" class="level3" data-number="5.1.8">
+<h3 data-number="5.1.8" class="anchored" data-anchor-id="reactive-flow-1"><span class="header-section-number">5.1.8</span> Reactive flow</h3>
 <p>Here is a roadmap of the reactive flow in Shiny, though for now we’ll just focus on the straight path between an input and an output, and discuss the other features later in the course.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -363,8 +393,8 @@
 </div>
 </div>
 </section>
-<section id="reactive-flow-simplified" class="level3" data-number="3.1.9">
-<h3 data-number="3.1.9" class="anchored" data-anchor-id="reactive-flow-simplified"><span class="header-section-number">3.1.9</span> Reactive flow, simplified</h3>
+<section id="reactive-flow-simplified" class="level3" data-number="5.1.9">
+<h3 data-number="5.1.9" class="anchored" data-anchor-id="reactive-flow-simplified"><span class="header-section-number">5.1.9</span> Reactive flow, simplified</h3>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -377,11 +407,11 @@
 <p>The user selects an input, this input goes through some expression in the server, and an output is rendered. Each time the user changes their input selection, the expression that generates the output will automatically re-execute, and the relevant output will be re-rendered based on the new value of the input.</p>
 <p>In a Shiny application, there’s no need to explictly describe the relationships between inputs and outputs and tell R what to do when each input changes, Shiny automatically handles these details for you.</p>
 </section>
-<section id="practice-building-a-reactive-widget" class="level3" data-number="3.1.10">
-<h3 data-number="3.1.10" class="anchored" data-anchor-id="practice-building-a-reactive-widget"><span class="header-section-number">3.1.10</span> Practice: Building a reactive widget</h3>
+<section id="practice-building-a-reactive-widget" class="level3" data-number="5.1.10">
+<h3 data-number="5.1.10" class="anchored" data-anchor-id="practice-building-a-reactive-widget"><span class="header-section-number">5.1.10</span> Practice: Building a reactive widget</h3>
 <p>As we saw in the previous sections, reactivity is established by linking an input with an output via a <code>render*()</code> function.</p>
-<section id="your-turn" class="level4" data-number="3.1.10.1">
-<h4 data-number="3.1.10.1" class="anchored" data-anchor-id="your-turn"><span class="header-section-number">3.1.10.1</span> Your turn</h4>
+<section id="your-turn" class="level4" data-number="5.1.10.1">
+<h4 data-number="5.1.10.1" class="anchored" data-anchor-id="your-turn"><span class="header-section-number">5.1.10.1</span> Your turn</h4>
 <ul>
 <li><p>Add a new input widget, a <code>sliderInput</code>, that controls the transparency of the plotted points. This widget should have the ID <code>alpha</code> and its values should range between 0 and 1. You can decide what the displayed label and initial value of the slider should be.</p></li>
 <li><p>Make the associated update in the server function.</p></li>
@@ -510,11 +540,11 @@
 </details>
 </section>
 </section>
-<section id="practice-dude-wheres-my-plot" class="level3" data-number="3.1.11">
-<h3 data-number="3.1.11" class="anchored" data-anchor-id="practice-dude-wheres-my-plot"><span class="header-section-number">3.1.11</span> Practice: Dude, where’s my plot?</h3>
+<section id="practice-dude-wheres-my-plot" class="level3" data-number="5.1.11">
+<h3 data-number="5.1.11" class="anchored" data-anchor-id="practice-dude-wheres-my-plot"><span class="header-section-number">5.1.11</span> Practice: Dude, where’s my plot?</h3>
 <p>The server function of this app builds two plots, <code>scatterplot</code> and <code>densityplot</code>, however the app only displays one.</p>
-<section id="your-turn-1" class="level4" data-number="3.1.11.1">
-<h4 data-number="3.1.11.1" class="anchored" data-anchor-id="your-turn-1"><span class="header-section-number">3.1.11.1</span> Your turn</h4>
+<section id="your-turn-1" class="level4" data-number="5.1.11.1">
+<h4 data-number="5.1.11.1" class="anchored" data-anchor-id="your-turn-1"><span class="header-section-number">5.1.11.1</span> Your turn</h4>
 <ul>
 <li>Run the app and identify which plot is missing</li>
 <li>Make the necessary update to the app UI to display the missing plot</li>
@@ -644,14 +674,14 @@
 </section>
 </section>
 </section>
-<section id="ui-inputs" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="ui-inputs"><span class="header-section-number">3.2</span> UI Inputs</h2>
-<section id="section-4" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="section-4"><span class="header-section-number">3.2.1</span> </h3>
+<section id="ui-inputs" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="ui-inputs"><span class="header-section-number">5.2</span> UI Inputs</h2>
+<section id="section-4" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="section-4"><span class="header-section-number">5.2.1</span> </h3>
 <p>The goal of this section is to build familiarity with a few UI input functions.</p>
 </section>
-<section id="section-5" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="section-5"><span class="header-section-number">3.2.2</span> </h3>
+<section id="section-5" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="section-5"><span class="header-section-number">5.2.2</span> </h3>
 <p>Once again, we’ll build on our simple movie browser app.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -663,8 +693,8 @@
 </div>
 </div>
 </section>
-<section id="section-6" class="level3" data-number="3.2.3">
-<h3 data-number="3.2.3" class="anchored" data-anchor-id="section-6"><span class="header-section-number">3.2.3</span> </h3>
+<section id="section-6" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="section-6"><span class="header-section-number">5.2.3</span> </h3>
 <p>Shiny provides a wide selection of input widgets. The Shiny cheatsheet is a great place to see a list of them all at once.</p>
 <p>Once you know which one you want to use, you can find out more about it in the package documentation. You’ll also get a chance to work with some of them in the following exercises.</p>
 <div class="cell" data-layout-align="center">
@@ -677,8 +707,8 @@
 </div>
 </div>
 </section>
-<section id="checkboxinput" class="level3" data-number="3.2.4">
-<h3 data-number="3.2.4" class="anchored" data-anchor-id="checkboxinput"><span class="header-section-number">3.2.4</span> checkboxInput</h3>
+<section id="checkboxinput" class="level3" data-number="5.2.4">
+<h3 data-number="5.2.4" class="anchored" data-anchor-id="checkboxinput"><span class="header-section-number">5.2.4</span> checkboxInput</h3>
 <p>Let’s start with a <code>checkboxInput()</code>.</p>
 <p>Suppose we want to add checkbox input to our app to specify whether the data plotted should be shown in a data table. We need to make three modifications to our app to accomplish this.</p>
 <ol type="1">
@@ -690,8 +720,8 @@
 </ol>
 <p>We’ll go through these steps one by one.</p>
 </section>
-<section id="ui-add-an-input-widget-that-the-user-can-interact-with-to-checkuncheck-the-box" class="level3" data-number="3.2.5">
-<h3 data-number="3.2.5" class="anchored" data-anchor-id="ui-add-an-input-widget-that-the-user-can-interact-with-to-checkuncheck-the-box"><span class="header-section-number">3.2.5</span> 1. <strong>ui</strong>: Add an input widget that the user can interact with to check/uncheck the box</h3>
+<section id="ui-add-an-input-widget-that-the-user-can-interact-with-to-checkuncheck-the-box" class="level3" data-number="5.2.5">
+<h3 data-number="5.2.5" class="anchored" data-anchor-id="ui-add-an-input-widget-that-the-user-can-interact-with-to-checkuncheck-the-box"><span class="header-section-number">5.2.5</span> 1. <strong>ui</strong>: Add an input widget that the user can interact with to check/uncheck the box</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb5"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show data table</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">checkboxInput</span>(<span class="at">inputId =</span> <span class="st">"show_data"</span>,</span>
@@ -704,8 +734,8 @@
 <li>And last is the <code>value</code>, the initial value of the widget. <code>TRUE</code> means the box is initially checked. If you want it to not be checked initially, you’d set it to <code>FALSE</code> instead.</li>
 </ul>
 </section>
-<section id="watch-for-commas" class="level3" data-number="3.2.6">
-<h3 data-number="3.2.6" class="anchored" data-anchor-id="watch-for-commas"><span class="header-section-number">3.2.6</span> Watch for commas!</h3>
+<section id="watch-for-commas" class="level3" data-number="5.2.6">
+<h3 data-number="5.2.6" class="anchored" data-anchor-id="watch-for-commas"><span class="header-section-number">5.2.6</span> Watch for commas!</h3>
 <p>A cautionary tale before we move on – watch for your commas! Remember that this widget definition goes in the <code>sidebarPanel()</code>. In this panel we separate out widget with commas.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb6"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sidebarPanel</span>(</span>
@@ -739,8 +769,8 @@
 <li>then our new <code>checkboxInput</code> and no comma after it since it’s the last item in the list.</li>
 </ul>
 </section>
-<section id="ui-add-an-output-to-the-ui-defining-where-the-data-table-should-appear." class="level3" data-number="3.2.7">
-<h3 data-number="3.2.7" class="anchored" data-anchor-id="ui-add-an-output-to-the-ui-defining-where-the-data-table-should-appear."><span class="header-section-number">3.2.7</span> 2. <strong>ui</strong>: Add an output to the UI defining where the data table should appear.</h3>
+<section id="ui-add-an-output-to-the-ui-defining-where-the-data-table-should-appear." class="level3" data-number="5.2.7">
+<h3 data-number="5.2.7" class="anchored" data-anchor-id="ui-add-an-output-to-the-ui-defining-where-the-data-table-should-appear."><span class="header-section-number">5.2.7</span> 2. <strong>ui</strong>: Add an output to the UI defining where the data table should appear.</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb7"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mainPanel</span>(</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Show scatterplot</span></span>
@@ -752,8 +782,8 @@
 <p>The second step was to add an output to the UI defining where the data table should appear. Note that for this we’re using the <code>dataTableOutput()</code> function.</p>
 <p>This function takes one argument, the <code>outputId</code>. Again, you can define to be anything we want, but short and informative names are the best.</p>
 </section>
-<section id="server-add-a-reactive-expression-that-creates-the-data-table-if-the-checkbox-is-checked." class="level3" data-number="3.2.8">
-<h3 data-number="3.2.8" class="anchored" data-anchor-id="server-add-a-reactive-expression-that-creates-the-data-table-if-the-checkbox-is-checked."><span class="header-section-number">3.2.8</span> 3. <strong>server</strong>: Add a reactive expression that creates the data table if the checkbox is checked.</h3>
+<section id="server-add-a-reactive-expression-that-creates-the-data-table-if-the-checkbox-is-checked." class="level3" data-number="5.2.8">
+<h3 data-number="5.2.8" class="anchored" data-anchor-id="server-add-a-reactive-expression-that-creates-the-data-table-if-the-checkbox-is-checked."><span class="header-section-number">5.2.8</span> 3. <strong>server</strong>: Add a reactive expression that creates the data table if the checkbox is checked.</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb8"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print data table if checked </span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>moviestable <span class="ot">&lt;-</span> <span class="fu">renderDataTable</span>({</span>
@@ -767,8 +797,8 @@
 <p>Lastly, in our server, we describe how this table should be calculated. We use the <code>renderDataTable()</code> function to build this table.</p>
 <p>Note that the first line of code in the function is an if statement, telling the app to only do this if <code>input$show_data</code> is <code>TRUE</code>. We also specify some other arguments to <code>datatable()</code>, mostly for cosmetic reasons.</p>
 </section>
-<section id="section-7" class="level3" data-number="3.2.9">
-<h3 data-number="3.2.9" class="anchored" data-anchor-id="section-7"><span class="header-section-number">3.2.9</span> </h3>
+<section id="section-7" class="level3" data-number="5.2.9">
+<h3 data-number="5.2.9" class="anchored" data-anchor-id="section-7"><span class="header-section-number">5.2.9</span> </h3>
 <p>Here is the resulting app, with the box <strong>checked</strong>:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -790,8 +820,8 @@
 </div>
 </div>
 </section>
-<section id="scoping" class="level3" data-number="3.2.10">
-<h3 data-number="3.2.10" class="anchored" data-anchor-id="scoping"><span class="header-section-number">3.2.10</span> Scoping</h3>
+<section id="scoping" class="level3" data-number="5.2.10">
+<h3 data-number="5.2.10" class="anchored" data-anchor-id="scoping"><span class="header-section-number">5.2.10</span> Scoping</h3>
 <p>A quick note on scoping:</p>
 <p>We saw that the data loaded on top of the Shiny app, outside of ui and server definitions, is visible to the server. That’s how we were able to plot the data simply by referring to the data frame by name. The data frame is actually also visible to the UI as well. So our UI inputs could be defined programmatically.</p>
 <p>We’ll give an example for this, not with an interactive widget but instead with a static HTML statement:</p>
@@ -801,11 +831,11 @@
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>            <span class="st">"observations."</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="practice-add-numericinput" class="level3" data-number="3.2.11">
-<h3 data-number="3.2.11" class="anchored" data-anchor-id="practice-add-numericinput"><span class="header-section-number">3.2.11</span> Practice: Add numericInput</h3>
+<section id="practice-add-numericinput" class="level3" data-number="5.2.11">
+<h3 data-number="5.2.11" class="anchored" data-anchor-id="practice-add-numericinput"><span class="header-section-number">5.2.11</span> Practice: Add numericInput</h3>
 <p>The app below allows users to randomly select a desired number of movies, and displays some information on the selected movies in a tabular output. This table is created using a new function, <code>renderDataTable()</code>, but for now we will keep our focus on the <code>numericInput()</code> widget. We will also learn to define variables outside of the app so that they can be used in multiple spots to make our code more efficient.</p>
-<section id="your-turn-2" class="level4" data-number="3.2.11.1">
-<h4 data-number="3.2.11.1" class="anchored" data-anchor-id="your-turn-2"><span class="header-section-number">3.2.11.1</span> Your turn</h4>
+<section id="your-turn-2" class="level4" data-number="5.2.11.1">
+<h4 data-number="5.2.11.1" class="anchored" data-anchor-id="your-turn-2"><span class="header-section-number">5.2.11.1</span> Your turn</h4>
 <ul>
 <li><p>Make sure entries in the <code>sidebarPanel()</code> are separated by commas</p></li>
 <li><p>Calculate <code>n_total</code> (total number of movies in the data set) as <code>nrow(movies)</code> before defining the UI.</p></li>
@@ -933,8 +963,8 @@
 </details>
 </section>
 </section>
-<section id="practice-req" class="level3" data-number="3.2.12">
-<h3 data-number="3.2.12" class="anchored" data-anchor-id="practice-req"><span class="header-section-number">3.2.12</span> Practice: req</h3>
+<section id="practice-req" class="level3" data-number="5.2.12">
+<h3 data-number="5.2.12" class="anchored" data-anchor-id="practice-req"><span class="header-section-number">5.2.12</span> Practice: req</h3>
 <p>The app below is the one you developed in the previous exercise.</p>
 <ul>
 <li>Highlight the code and run it.</li>
@@ -943,8 +973,8 @@
 <p>You will encounter an error: <code>Error: size is not a numeric or integer vector</code>.</p>
 <p>In order to avoid such errors, which users of your app could very easily encounter, we need to hold back the output from being calculated if the input is missing.</p>
 <p>The <code>req()</code> function is the simplest and best way to do this, it ensures that values are available (“<a href="https://shiny.rstudio.com/reference/shiny/latest/req.html">truthy</a>”) before proceeding with a calculation or action. If any of the given values is not truthy, the operation is stopped by raising a “silent” exception (not logged by Shiny, nor displayed in the Shiny app’s UI).</p>
-<section id="your-turn-3" class="level4" data-number="3.2.12.1">
-<h4 data-number="3.2.12.1" class="anchored" data-anchor-id="your-turn-3"><span class="header-section-number">3.2.12.1</span> Your turn</h4>
+<section id="your-turn-3" class="level4" data-number="5.2.12.1">
+<h4 data-number="5.2.12.1" class="anchored" data-anchor-id="your-turn-3"><span class="header-section-number">5.2.12.1</span> Your turn</h4>
 <ul>
 <li><p>Add <code>req(input$n)</code> in the <code>renderDataTable()</code> function in the server before <code>movies_sample</code> is calculated.</p></li>
 <li><p>Run your app again and delete the input sample size to confirm that the error doesn’t appear, and neither does the output table.</p></li>
@@ -1019,11 +1049,11 @@
 </details>
 </section>
 </section>
-<section id="practice-select-to-selectize" class="level3" data-number="3.2.13">
-<h3 data-number="3.2.13" class="anchored" data-anchor-id="practice-select-to-selectize"><span class="header-section-number">3.2.13</span> Practice: Select to selectize</h3>
+<section id="practice-select-to-selectize" class="level3" data-number="5.2.13">
+<h3 data-number="5.2.13" class="anchored" data-anchor-id="practice-select-to-selectize"><span class="header-section-number">5.2.13</span> Practice: Select to selectize</h3>
 <p>The app below can be used to display movies from selected studios. Currently you can only choose one studio, but we’ll modify it to allow for multiple selections. Additionally, there are 211 unique studios represented in this dataset, we need a better way to select than to scroll through such a long list, and we address that with the <code>selectize</code> option, which will suggest names of studios as you type them.</p>
-<section id="your-turn-4" class="level4" data-number="3.2.13.1">
-<h4 data-number="3.2.13.1" class="anchored" data-anchor-id="your-turn-4"><span class="header-section-number">3.2.13.1</span> Your turn</h4>
+<section id="your-turn-4" class="level4" data-number="5.2.13.1">
+<h4 data-number="5.2.13.1" class="anchored" data-anchor-id="your-turn-4"><span class="header-section-number">5.2.13.1</span> Your turn</h4>
 <ul>
 <li><p>View the help function for the <code>selectInput</code> widget by typing <code>?selectInput</code> in the console, and figure out how to enable the <code>selectize</code> and <code>multiple</code> selection options (or whether they are enabled by default).</p></li>
 <li><p>Based on your findings add the necessary arguments to the <code>selectInput</code> widget.</p></li>
@@ -1150,11 +1180,11 @@
 </details>
 </section>
 </section>
-<section id="practice-convert-dateinput-to-daterangeinput" class="level3" data-number="3.2.14">
-<h3 data-number="3.2.14" class="anchored" data-anchor-id="practice-convert-dateinput-to-daterangeinput"><span class="header-section-number">3.2.14</span> Practice: Convert <code>dateInput</code> to <code>dateRangeInput</code></h3>
+<section id="practice-convert-dateinput-to-daterangeinput" class="level3" data-number="5.2.14">
+<h3 data-number="5.2.14" class="anchored" data-anchor-id="practice-convert-dateinput-to-daterangeinput"><span class="header-section-number">5.2.14</span> Practice: Convert <code>dateInput</code> to <code>dateRangeInput</code></h3>
 <p>The app below can be used to display movies from a particular date onwards. Instead we would like to select movies between two given dates. Hence we need to convert the <code>dateInput</code> widget to <code>dateRangeInput</code>. This input will yield a vector (<code>input$date</code>) of length two: the first element is the start date and the second is the end date.</p>
-<section id="your-turn-5" class="level4" data-number="3.2.14.1">
-<h4 data-number="3.2.14.1" class="anchored" data-anchor-id="your-turn-5"><span class="header-section-number">3.2.14.1</span> Your turn</h4>
+<section id="your-turn-5" class="level4" data-number="5.2.14.1">
+<h4 data-number="5.2.14.1" class="anchored" data-anchor-id="your-turn-5"><span class="header-section-number">5.2.14.1</span> Your turn</h4>
 <ul>
 <li><p>Review the help files for the two widgets by typing <code>?dateInput</code> and <code>?dateRangeInput</code> in the console.</p></li>
 <li><p>Update <code>dateInput</code> to <code>dateRangeInput</code>, instead of just a start date (<code>value</code>) specify <code>start</code> and <code>end</code> dates, Jan 1, 2013 and Jan 1, 2014, respectively.</p></li>
@@ -1284,14 +1314,14 @@
 </section>
 </section>
 </section>
-<section id="render-functions" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="render-functions"><span class="header-section-number">3.3</span> <code>render*()</code> functions</h2>
-<section id="section-8" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="section-8"><span class="header-section-number">3.3.1</span> </h3>
+<section id="render-functions" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="render-functions"><span class="header-section-number">5.3</span> <code>render*()</code> functions</h2>
+<section id="section-8" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="section-8"><span class="header-section-number">5.3.1</span> </h3>
 <p>The goal of this section is to build familiarity with a few rendering functions.</p>
 </section>
-<section id="section-9" class="level3" data-number="3.3.2">
-<h3 data-number="3.3.2" class="anchored" data-anchor-id="section-9"><span class="header-section-number">3.3.2</span> </h3>
+<section id="section-9" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="section-9"><span class="header-section-number">5.3.2</span> </h3>
 <p>As we mentioned earlier in the course, Shiny provides a wide selection of output types, each of which works with a render function. We looked at the <code>renderPlot()</code> function before.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -1303,8 +1333,8 @@
 </div>
 </div>
 </section>
-<section id="section-10" class="level3" data-number="3.3.3">
-<h3 data-number="3.3.3" class="anchored" data-anchor-id="section-10"><span class="header-section-number">3.3.3</span> </h3>
+<section id="section-10" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="section-10"><span class="header-section-number">5.3.3</span> </h3>
 <p>Now let’s take a look at the <code>renderTable()</code> function.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -1316,8 +1346,8 @@
 </div>
 </div>
 </section>
-<section id="section-11" class="level3" data-number="3.3.4">
-<h3 data-number="3.3.4" class="anchored" data-anchor-id="section-11"><span class="header-section-number">3.3.4</span> </h3>
+<section id="section-11" class="level3" data-number="5.3.4">
+<h3 data-number="5.3.4" class="anchored" data-anchor-id="section-11"><span class="header-section-number">5.3.4</span> </h3>
 <p>This is the app you’ve seen numerous times so far that we will use as our starting point.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -1329,8 +1359,8 @@
 </div>
 </div>
 </section>
-<section id="section-12" class="level3" data-number="3.3.5">
-<h3 data-number="3.3.5" class="anchored" data-anchor-id="section-12"><span class="header-section-number">3.3.5</span> </h3>
+<section id="section-12" class="level3" data-number="5.3.5">
+<h3 data-number="5.3.5" class="anchored" data-anchor-id="section-12"><span class="header-section-number">5.3.5</span> </h3>
 <p>And this is the final app that we want to achieve, with a summary table beneath the plot.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -1342,8 +1372,8 @@
 </div>
 </div>
 </section>
-<section id="rendertable" class="level3" data-number="3.3.6">
-<h3 data-number="3.3.6" class="anchored" data-anchor-id="rendertable"><span class="header-section-number">3.3.6</span> <code>renderTable</code></h3>
+<section id="rendertable" class="level3" data-number="5.3.6">
+<h3 data-number="5.3.6" class="anchored" data-anchor-id="rendertable"><span class="header-section-number">5.3.6</span> <code>renderTable</code></h3>
 <p>So we want to add a summary table beneath the plot displaying summary statistics for a new variable we’ll create: <code>score_ratio</code>, the ratio of audience scores to critics scores.</p>
 <div class="cell" data-layout-align="center">
 
@@ -1357,8 +1387,8 @@
 </ol>
 <p>We’ll go through these steps one by one.</p>
 </section>
-<section id="calculate-the-new-variable." class="level3" data-number="3.3.7">
-<h3 data-number="3.3.7" class="anchored" data-anchor-id="calculate-the-new-variable."><span class="header-section-number">3.3.7</span> 1. Calculate the new variable.</h3>
+<section id="calculate-the-new-variable." class="level3" data-number="5.3.7">
+<h3 data-number="5.3.7" class="anchored" data-anchor-id="calculate-the-new-variable."><span class="header-section-number">5.3.7</span> 1. Calculate the new variable.</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb17"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create new variable:</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ratio of critics and audience scores</span></span>
@@ -1368,8 +1398,8 @@
 <p>First is creating the new variable, which we can do outside of the ui and the server so it’s calculated once when our app launches.</p>
 <p>There are many ways one can create the new variable in R. We do so here using the <code>mutate()</code> function from the <code>dplyr</code> package.</p>
 </section>
-<section id="ui-add-an-input-widget-that-the-user-can-interact-with-to-check-boxes-for-selected-title-types." class="level3" data-number="3.3.8">
-<h3 data-number="3.3.8" class="anchored" data-anchor-id="ui-add-an-input-widget-that-the-user-can-interact-with-to-check-boxes-for-selected-title-types."><span class="header-section-number">3.3.8</span> 2. <strong>ui</strong>: Add an input widget that the user can interact with to check boxes for selected title types.</h3>
+<section id="ui-add-an-input-widget-that-the-user-can-interact-with-to-check-boxes-for-selected-title-types." class="level3" data-number="5.3.8">
+<h3 data-number="5.3.8" class="anchored" data-anchor-id="ui-add-an-input-widget-that-the-user-can-interact-with-to-check-boxes-for-selected-title-types."><span class="header-section-number">5.3.8</span> 2. <strong>ui</strong>: Add an input widget that the user can interact with to check boxes for selected title types.</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb18"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset for title types</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">checkboxGroupInput</span>(<span class="at">inputId =</span> <span class="st">"selected_title_type"</span>, </span>
@@ -1383,8 +1413,8 @@
 <li>Third, we define the <code>choices</code>. Previously we manually entered the choices. We present an alternative approach here, directly using information from the dataset. Specifically, the choices we want are the levels of the <code>title_type</code> variable. And by default we select all of them.</li>
 </ul>
 </section>
-<section id="ui-add-an-output-defining-where-the-summary-tables-should-appear." class="level3" data-number="3.3.9">
-<h3 data-number="3.3.9" class="anchored" data-anchor-id="ui-add-an-output-defining-where-the-summary-tables-should-appear."><span class="header-section-number">3.3.9</span> 3. <strong>ui</strong>: Add an output defining where the summary tables should appear.</h3>
+<section id="ui-add-an-output-defining-where-the-summary-tables-should-appear." class="level3" data-number="5.3.9">
+<h3 data-number="5.3.9" class="anchored" data-anchor-id="ui-add-an-output-defining-where-the-summary-tables-should-appear."><span class="header-section-number">5.3.9</span> 3. <strong>ui</strong>: Add an output defining where the summary tables should appear.</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb19"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mainPanel</span>(</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Show scatterplot</span></span>
@@ -1395,8 +1425,8 @@
 </div>
 <p>We use the <code>tableOutput()</code> function for this. This function takes one argument, the <code>outputId</code>.</p>
 </section>
-<section id="server-add-a-reactive-expression-that-creates-the-summary-table." class="level3" data-number="3.3.10">
-<h3 data-number="3.3.10" class="anchored" data-anchor-id="server-add-a-reactive-expression-that-creates-the-summary-table."><span class="header-section-number">3.3.10</span> 4. <strong>server</strong>: Add a reactive expression that creates the summary table.</h3>
+<section id="server-add-a-reactive-expression-that-creates-the-summary-table." class="level3" data-number="5.3.10">
+<h3 data-number="5.3.10" class="anchored" data-anchor-id="server-add-a-reactive-expression-that-creates-the-summary-table."><span class="header-section-number">5.3.10</span> 4. <strong>server</strong>: Add a reactive expression that creates the summary table.</h3>
 <p>Lastly, in the server, we describe how this table should be calculated with the <code>renderTable()</code> function.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb20"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>summarytable <span class="ot">&lt;-</span> <span class="fu">renderTable</span>(</span>
@@ -1427,8 +1457,8 @@
 <p>Note that we wrap the expression with curly braces. The expression first filters for the selected title types. Since this is a user selection, the information is in the input list generated in the ui.</p>
 <p>Then, the expression groups the data by MPAA rating, and then calculates summary statistics like means, standard deviations, and sample sizes for each level of MPAA ratings.</p>
 </section>
-<section id="section-13" class="level3" data-number="3.3.11">
-<h3 data-number="3.3.11" class="anchored" data-anchor-id="section-13"><span class="header-section-number">3.3.11</span> </h3>
+<section id="section-13" class="level3" data-number="5.3.11">
+<h3 data-number="5.3.11" class="anchored" data-anchor-id="section-13"><span class="header-section-number">5.3.11</span> </h3>
 <p>If we stopped here and didn’t include any of the following arguments, the app would look something like this:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -1450,8 +1480,8 @@
 </div>
 </div>
 </section>
-<section id="section-14" class="level3" data-number="3.3.12">
-<h3 data-number="3.3.12" class="anchored" data-anchor-id="section-14"><span class="header-section-number">3.3.12</span> </h3>
+<section id="section-14" class="level3" data-number="5.3.12">
+<h3 data-number="5.3.12" class="anchored" data-anchor-id="section-14"><span class="header-section-number">5.3.12</span> </h3>
 <p>In order to achieve this look, we add additional arguments to our <code>render*</code> function.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb22"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>striped <span class="ot">=</span> <span class="cn">TRUE</span>, spacing <span class="ot">=</span> <span class="st">"l"</span>, align <span class="ot">=</span> <span class="st">"lccr"</span>, digits <span class="ot">=</span> <span class="dv">4</span>, width <span class="ot">=</span> <span class="st">"90%"</span>,</span>
@@ -1466,8 +1496,8 @@
 <li>and lastly a caption.</li>
 </ul>
 </section>
-<section id="recap" class="level3" data-number="3.3.13">
-<h3 data-number="3.3.13" class="anchored" data-anchor-id="recap"><span class="header-section-number">3.3.13</span> Recap</h3>
+<section id="recap" class="level3" data-number="5.3.13">
+<h3 data-number="5.3.13" class="anchored" data-anchor-id="recap"><span class="header-section-number">5.3.13</span> Recap</h3>
 <ul>
 <li><p>Shiny has a variety of <code>render*()</code> functions with corresponding <code>*Output()</code> functions to create and display outputs.</p></li>
 <li><p><code>render*()</code> functions can take on multiple arguments, the first being the expression for the desired output.</p></li>
@@ -1475,11 +1505,11 @@
 </ul>
 <p>Alright, it’s time for you to practice <code>render*()</code> functions!</p>
 </section>
-<section id="practice-missing-renderplot" class="level3" data-number="3.3.14">
-<h3 data-number="3.3.14" class="anchored" data-anchor-id="practice-missing-renderplot"><span class="header-section-number">3.3.14</span> Practice: Missing <code>renderPlot()</code></h3>
+<section id="practice-missing-renderplot" class="level3" data-number="5.3.14">
+<h3 data-number="5.3.14" class="anchored" data-anchor-id="practice-missing-renderplot"><span class="header-section-number">5.3.14</span> Practice: Missing <code>renderPlot()</code></h3>
 <p>The following app is one you’ve seen before – it creates a scatterplot of two variables selected by the user. However it’s missing a crucial component, and hence the plot is not rendered.</p>
-<section id="your-turn-6" class="level4" data-number="3.3.14.1">
-<h4 data-number="3.3.14.1" class="anchored" data-anchor-id="your-turn-6"><span class="header-section-number">3.3.14.1</span> Your turn</h4>
+<section id="your-turn-6" class="level4" data-number="5.3.14.1">
+<h4 data-number="5.3.14.1" class="anchored" data-anchor-id="your-turn-6"><span class="header-section-number">5.3.14.1</span> Your turn</h4>
 <ul>
 <li>Fix the app code by adding the missing component, and run to confirm that it works.</li>
 </ul>
@@ -1593,11 +1623,11 @@
 </details>
 </section>
 </section>
-<section id="practice-add-rendertext" class="level3" data-number="3.3.15">
-<h3 data-number="3.3.15" class="anchored" data-anchor-id="practice-add-rendertext"><span class="header-section-number">3.3.15</span> Practice: Add <code>renderText()</code></h3>
+<section id="practice-add-rendertext" class="level3" data-number="5.3.15">
+<h3 data-number="5.3.15" class="anchored" data-anchor-id="practice-add-rendertext"><span class="header-section-number">5.3.15</span> Practice: Add <code>renderText()</code></h3>
 <p>In this app, the user selects <code>x</code> and <code>y</code> variables for the scatterplot. We will extend the app to also include a <code>textOutput</code> which prints the correlation between the two selected variables as well some informational text.</p>
-<section id="your-turn-7" class="level4" data-number="3.3.15.1">
-<h4 data-number="3.3.15.1" class="anchored" data-anchor-id="your-turn-7"><span class="header-section-number">3.3.15.1</span> Your turn</h4>
+<section id="your-turn-7" class="level4" data-number="5.3.15.1">
+<h4 data-number="5.3.15.1" class="anchored" data-anchor-id="your-turn-7"><span class="header-section-number">5.3.15.1</span> Your turn</h4>
 <ul>
 <li>Create the text to be printed using the <code>paste()</code> function: “Correlation = ____. Note: If the relationship between the two variables is not linear, the correlation coefficient will not be meaningful.”</li>
 <li>Place the text within the <code>renderText()</code> function, and assign to <code>output$text$</code>.</li>
@@ -1730,14 +1760,14 @@
 </section>
 </section>
 </section>
-<section id="ui-outputs" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="ui-outputs"><span class="header-section-number">3.4</span> UI outputs</h2>
-<section id="section-15" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="section-15"><span class="header-section-number">3.4.1</span> </h3>
+<section id="ui-outputs" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="ui-outputs"><span class="header-section-number">5.4</span> UI outputs</h2>
+<section id="section-15" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="section-15"><span class="header-section-number">5.4.1</span> </h3>
 <p>We’ve seen UI outputs before, and in this section we dive deeper into the <code>plotOutput()</code> function to build an interactive graph.</p>
 </section>
-<section id="section-16" class="level3" data-number="3.4.2">
-<h3 data-number="3.4.2" class="anchored" data-anchor-id="section-16"><span class="header-section-number">3.4.2</span> </h3>
+<section id="section-16" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="section-16"><span class="header-section-number">5.4.2</span> </h3>
 <p>Once again we’re going to start with this app.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -1749,8 +1779,8 @@
 </div>
 </div>
 </section>
-<section id="section-17" class="level3" data-number="3.4.3">
-<h3 data-number="3.4.3" class="anchored" data-anchor-id="section-17"><span class="header-section-number">3.4.3</span> </h3>
+<section id="section-17" class="level3" data-number="5.4.3">
+<h3 data-number="5.4.3" class="anchored" data-anchor-id="section-17"><span class="header-section-number">5.4.3</span> </h3>
 <p>And we’ll add functionality to the app so that movies corresponding to the selected points on the plot via brushing are displayed in a data table beneath the plot.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -1762,8 +1792,8 @@
 </div>
 </div>
 </section>
-<section id="plotoutput" class="level3" data-number="3.4.4">
-<h3 data-number="3.4.4" class="anchored" data-anchor-id="plotoutput"><span class="header-section-number">3.4.4</span> <code>plotOutput()</code></h3>
+<section id="plotoutput" class="level3" data-number="5.4.4">
+<h3 data-number="5.4.4" class="anchored" data-anchor-id="plotoutput"><span class="header-section-number">5.4.4</span> <code>plotOutput()</code></h3>
 <p>We need to make three modifications to our app to accomplish this.</p>
 <ol type="1">
 <li><strong>ui:</strong> Add functionality to <code>plotOutput</code> to select points via brushing.</li>
@@ -1772,17 +1802,17 @@
 </ol>
 <p>Let’s go through these steps one by one.</p>
 </section>
-<section id="ui-add-functionality-to-plotoutput-to-select-points-via-brushing." class="level3" data-number="3.4.5">
-<h3 data-number="3.4.5" class="anchored" data-anchor-id="ui-add-functionality-to-plotoutput-to-select-points-via-brushing."><span class="header-section-number">3.4.5</span> 1. <strong>ui:</strong> Add functionality to <code>plotOutput</code> to select points via brushing.</h3>
+<section id="ui-add-functionality-to-plotoutput-to-select-points-via-brushing." class="level3" data-number="5.4.5">
+<h3 data-number="5.4.5" class="anchored" data-anchor-id="ui-add-functionality-to-plotoutput-to-select-points-via-brushing."><span class="header-section-number">5.4.5</span> 1. <strong>ui:</strong> Add functionality to <code>plotOutput</code> to select points via brushing.</h3>
 <p>First is the brushing capability added to the <code>plotOutput()</code> function. Previously we’ve only passed one argument to the <code>plotOutput()</code> function. This time we’re making use its additional arguments, one of which is <code>brush</code>.</p>
 <p>Providing a string to this argument allows the user to “brush” in the plotting area. Brushing means that the user will be able to draw a rectangle in the plotting area and drag it around. Brushing will send information about the brushed area to the server. The value will then be accessible via <code>input$plot_brush</code>.</p>
 </section>
-<section id="ui-add-an-output-defining-where-the-data-table-should-appear." class="level3" data-number="3.4.6">
-<h3 data-number="3.4.6" class="anchored" data-anchor-id="ui-add-an-output-defining-where-the-data-table-should-appear."><span class="header-section-number">3.4.6</span> 2. <strong>ui:</strong> Add an output defining where the data table should appear.</h3>
+<section id="ui-add-an-output-defining-where-the-data-table-should-appear." class="level3" data-number="5.4.6">
+<h3 data-number="5.4.6" class="anchored" data-anchor-id="ui-add-an-output-defining-where-the-data-table-should-appear."><span class="header-section-number">5.4.6</span> 2. <strong>ui:</strong> Add an output defining where the data table should appear.</h3>
 <p>Second, we use the <code>dataTableOutput()</code> to define where on the main panel the data table should appear.</p>
 </section>
-<section id="server-add-a-reactive-expression-that-creates-the-data-table-for-the-selected-points." class="level3" data-number="3.4.7">
-<h3 data-number="3.4.7" class="anchored" data-anchor-id="server-add-a-reactive-expression-that-creates-the-data-table-for-the-selected-points."><span class="header-section-number">3.4.7</span> 3. <strong>server:</strong> Add a reactive expression that creates the data table for the selected points.</h3>
+<section id="server-add-a-reactive-expression-that-creates-the-data-table-for-the-selected-points." class="level3" data-number="5.4.7">
+<h3 data-number="5.4.7" class="anchored" data-anchor-id="server-add-a-reactive-expression-that-creates-the-data-table-for-the-selected-points."><span class="header-section-number">5.4.7</span> 3. <strong>server:</strong> Add a reactive expression that creates the data table for the selected points.</h3>
 <p>And third, in the server, we describe how this table should be calculated with the <code>renderDataTable()</code> function. We make use of a helper function <code>brushedPoints()</code>, which returns rows from a data frame which are under a brush used with <code>plotOutput()</code>.</p>
 <ul>
 <li>The first argument is the data frame from which to select rows.</li>
@@ -1791,11 +1821,11 @@
 </ul>
 <p>Note that the complete expression is wrapped in curly braces again. We do this for consistency in our code as well as to make debugging easier, if need be.</p>
 </section>
-<section id="practice---hovering" class="level3" data-number="3.4.8">
-<h3 data-number="3.4.8" class="anchored" data-anchor-id="practice---hovering"><span class="header-section-number">3.4.8</span> Practice - Hovering</h3>
+<section id="practice---hovering" class="level3" data-number="5.4.8">
+<h3 data-number="5.4.8" class="anchored" data-anchor-id="practice---hovering"><span class="header-section-number">5.4.8</span> Practice - Hovering</h3>
 <p>In addition to brushing, users can also interact with plots via hovering over them.</p>
-<section id="your-turn-8" class="level4" data-number="3.4.8.1">
-<h4 data-number="3.4.8.1" class="anchored" data-anchor-id="your-turn-8"><span class="header-section-number">3.4.8.1</span> Your turn</h4>
+<section id="your-turn-8" class="level4" data-number="5.4.8.1">
+<h4 data-number="5.4.8.1" class="anchored" data-anchor-id="your-turn-8"><span class="header-section-number">5.4.8.1</span> Your turn</h4>
 <ul>
 <li>Change the <code>brush</code> argument to <code>hover</code> in the <code>plotOutput()</code>.</li>
 <li>Read the article on <a href="http://shiny.rstudio.com/articles/selecting-rows-of-data.html">Selecting rows of data</a> to determine what change needs to be made in the <code>renderDataTable()</code> function to list the data points that the user hovers on.</li>
@@ -1927,11 +1957,11 @@
 </details>
 </section>
 </section>
-<section id="practice---displaying-text-outputs" class="level3" data-number="3.4.9">
-<h3 data-number="3.4.9" class="anchored" data-anchor-id="practice---displaying-text-outputs"><span class="header-section-number">3.4.9</span> Practice - Displaying text outputs</h3>
+<section id="practice---displaying-text-outputs" class="level3" data-number="5.4.9">
+<h3 data-number="5.4.9" class="anchored" data-anchor-id="practice---displaying-text-outputs"><span class="header-section-number">5.4.9</span> Practice - Displaying text outputs</h3>
 <p>The goal in this exercise is to develop an app where the user selects two variables and their relationship is visualized with a scatterplot, and averages of both variables are reported as well as the output of the linear regression predicting the variable on the y-axis from the variable in the x-axis. The code on the right only does some of these things.</p>
-<section id="your-turn-9" class="level4" data-number="3.4.9.1">
-<h4 data-number="3.4.9.1" class="anchored" data-anchor-id="your-turn-9"><span class="header-section-number">3.4.9.1</span> Your turn</h4>
+<section id="your-turn-9" class="level4" data-number="5.4.9.1">
+<h4 data-number="5.4.9.1" class="anchored" data-anchor-id="your-turn-9"><span class="header-section-number">5.4.9.1</span> Your turn</h4>
 <ul>
 <li>Add the appropriate output UI functions and output IDs to print the elements noted in the comments in the <code>mainPanel()</code> of the UI and run the app. Also add commas as needed.</li>
 <li>In the server function averages are calculated first and then the regression model is fit, but in the app the regression output comes before the averages. Make the necessary changes to the app so that averages are displayed above the regression output.</li>
@@ -2090,12 +2120,12 @@
 </details>
 </section>
 </section>
-<section id="practice---creating-and-formatting-html-output" class="level3" data-number="3.4.10">
-<h3 data-number="3.4.10" class="anchored" data-anchor-id="practice---creating-and-formatting-html-output"><span class="header-section-number">3.4.10</span> Practice - Creating and formatting HTML output</h3>
+<section id="practice---creating-and-formatting-html-output" class="level3" data-number="5.4.10">
+<h3 data-number="5.4.10" class="anchored" data-anchor-id="practice---creating-and-formatting-html-output"><span class="header-section-number">5.4.10</span> Practice - Creating and formatting HTML output</h3>
 <p>In the previous exercise you developed an app that reported averages of selected x and y variables as two separate outputs. An alternative approach would be to combine them into a single, multi-line output.</p>
 <p>Combine the values calculated in the previous exercise as described below to create a customized HTML output.</p>
-<section id="your-turn-10" class="level4" data-number="3.4.10.1">
-<h4 data-number="3.4.10.1" class="anchored" data-anchor-id="your-turn-10"><span class="header-section-number">3.4.10.1</span> Your turn</h4>
+<section id="your-turn-10" class="level4" data-number="5.4.10.1">
+<h4 data-number="5.4.10.1" class="anchored" data-anchor-id="your-turn-10"><span class="header-section-number">5.4.10.1</span> Your turn</h4>
 <ul>
 <li>In the server, create a new output, named <code>output$avgs</code>, that replaces <code>output$avg_x</code> and <code>output$avg_y</code>. For this output, calculate <code>avg_x</code> and <code>avg_y</code> like you did before, save the output text strings as <code>str_x</code> and <code>str_y</code>, and finally combine these two text strings with <code>HTML(paste(str_x, str_y, sep = '&lt;br/&gt;'))</code>.</li>
 <li>In the UI, replace the <code>textOutput()</code>s with a call to <code>htmlOutput()</code>, calling the new HTML text string you created in the server.</li>
@@ -2249,12 +2279,12 @@
 </details>
 </section>
 </section>
-<section id="practice---download-data-with-downloadbutton" class="level3" data-number="3.4.11">
-<h3 data-number="3.4.11" class="anchored" data-anchor-id="practice---download-data-with-downloadbutton"><span class="header-section-number">3.4.11</span> Practice - Download data with <code>downloadButton()</code></h3>
+<section id="practice---download-data-with-downloadbutton" class="level3" data-number="5.4.11">
+<h3 data-number="5.4.11" class="anchored" data-anchor-id="practice---download-data-with-downloadbutton"><span class="header-section-number">5.4.11</span> Practice - Download data with <code>downloadButton()</code></h3>
 <p>In this app you get to specify the filetype and the variables included in the file you will download. For downloading from a Shiny app we use the <code>downloadHandler()</code> function in the server and <code>downloadButton()</code> or <code>downloadLink()</code> function in the UI.</p>
 <p>Download the selected data with <code>downloadButton()</code> using instructions help files to figure out exactly how it works</p>
-<section id="your-turn-11" class="level4" data-number="3.4.11.1">
-<h4 data-number="3.4.11.1" class="anchored" data-anchor-id="your-turn-11"><span class="header-section-number">3.4.11.1</span> Your turn</h4>
+<section id="your-turn-11" class="level4" data-number="5.4.11.1">
+<h4 data-number="5.4.11.1" class="anchored" data-anchor-id="your-turn-11"><span class="header-section-number">5.4.11.1</span> Your turn</h4>
 <ul>
 <li>In the server function, add the name of the output for file download, the function for setting up a file download, and fill in other blanks. Looking in the help file for the function may be useful.</li>
 <li>In the UI, add the name of the function for displaying a link or button for downloading.</li>
@@ -2478,13 +2508,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./hello.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Hello Shiny</span></span>
+      <a href="./hello-recap.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Recap</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./reactivity.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">3: Reactivity essentials</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Reactivity essentials</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

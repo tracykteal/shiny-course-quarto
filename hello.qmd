@@ -1,3 +1,8 @@
+---
+always_allow_html: true
+---
+
+
 # Getting Started
 
 ```{r setup, include=FALSE}

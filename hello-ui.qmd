@@ -1,3 +1,7 @@
+---
+always_allow_html: true
+---
+
 # User interface (UI)
 
 ```{r setup, include=FALSE}

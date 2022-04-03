@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="quarto-99.9.9">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>ui</title>
+  <title>Shiny Getting Started - 7&nbsp; Customizing UI</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -76,44 +76,222 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
 
-  <script src="ui_files/libs/clipboard/clipboard.min.js"></script>
-  <script src="ui_files/libs/quarto-html/quarto.js"></script>
-  <script src="ui_files/libs/quarto-html/popper.min.js"></script>
-  <script src="ui_files/libs/quarto-html/tippy.umd.min.js"></script>
-  <script src="ui_files/libs/quarto-html/anchor.min.js"></script>
-  <link href="ui_files/libs/quarto-html/tippy.css" rel="stylesheet">
-  <link id="quarto-text-highlighting-styles" href="ui_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
-  <script src="ui_files/libs/bootstrap/bootstrap.min.js"></script>
-  <link href="ui_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-  <link href="ui_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
-  <script src="ui_files/libs/jquery-3.6.0/jquery.min.js"></script>
-  <script src="ui_files/libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
-  <link href="ui_files/libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-  <script src="ui_files/libs/datatables-binding-0.19/datatables.js"></script>
-  <link href="ui_files/libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
-  <script src="ui_files/libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+  <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+  <script src="site_libs/quarto-nav/headroom.min.js"></script>
+  <script src="site_libs/clipboard/clipboard.min.js"></script>
+  <meta name="quarto:offset" content="./">
+  <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+  <script src="site_libs/quarto-search/fuse.min.js"></script>
+  <script src="site_libs/quarto-search/quarto-search.js"></script>
+  <link href="./references.html" rel="next">
+  <link href="./reactivity.html" rel="prev">
+  <script src="site_libs/quarto-html/quarto.js"></script>
+  <script src="site_libs/quarto-html/popper.min.js"></script>
+  <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="site_libs/quarto-html/anchor.min.js"></script>
+  <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+  <link id="quarto-text-highlighting-styles" href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <script src="site_libs/bootstrap/bootstrap.min.js"></script>
+  <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <script id="quarto-search-options" type="application/json">{
+    "location": "sidebar",
+    "copy-button": false,
+    "collapse-after": 3,
+    "panel-placement": "start",
+    "type": "textbox",
+    "limit": 20,
+    "language": {
+      "search-no-results-text": "No results",
+      "search-matching-documents-text": "matching documents",
+      "search-copy-link-title": "Copy link to search",
+      "search-hide-matches-text": "Hide additional matches",
+      "search-more-match-text": "more match in this document",
+      "search-more-matches-text": "more matches in this document",
+      "search-clear-button-title": "Clear",
+      "search-detached-cancel-button-title": "Cancel",
+      "search-submit-button-title": "Submit"
+    }
+  }</script>
+  <script src="site_libs/jquery-3.6.0/jquery.min.js"></script>
+  <script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+  <link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+  <script src="site_libs/datatables-binding-0.19/datatables.js"></script>
+  <link href="site_libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
+  <script src="site_libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
-<body class="fullcontent">
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<body class="floating">
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Customizing UI</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Shiny Getting Started</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Hello Shiny</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hello.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Started</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hello-ui.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">User interface (UI)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hello-server.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Server function</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hello-recap.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Recap</span></a>
+  </div>
+</li>
+    </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./flow.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reactive Flow</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reactivity.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Reactivity essentials</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ui.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Customizing UI</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+<h2 id="toc-title">Table of contents</h2>
+<ul>
+<li><a href="#interface-builder-functions" class="nav-link active" data-scroll-target="#interface-builder-functions"> <span class="header-section-number">7.1</span> 4.1 Interface builder functions</a>
+<ul class="collapse">
+<li><a href="#section" class="nav-link" data-scroll-target="#section"> <span class="header-section-number">7.1.1</span> </a></li>
+<li><a href="#tags" class="nav-link" data-scroll-target="#tags"> <span class="header-section-number">7.1.2</span> tags</a></li>
+<li><a href="#tag---html" class="nav-link" data-scroll-target="#tag---html"> <span class="header-section-number">7.1.3</span> tag -&gt; HTML</a></li>
+<li><a href="#header-tags" class="nav-link" data-scroll-target="#header-tags"> <span class="header-section-number">7.1.4</span> Header tags</a></li>
+<li><a href="#linked-text" class="nav-link" data-scroll-target="#linked-text"> <span class="header-section-number">7.1.5</span> Linked text</a></li>
+<li><a href="#nested-tags" class="nav-link" data-scroll-target="#nested-tags"> <span class="header-section-number">7.1.6</span> Nested tags</a></li>
+<li><a href="#common-tags" class="nav-link" data-scroll-target="#common-tags"> <span class="header-section-number">7.1.7</span> Common tags</a></li>
+<li><a href="#section-1" class="nav-link" data-scroll-target="#section-1"> <span class="header-section-number">7.1.8</span> </a></li>
+<li><a href="#html" class="nav-link" data-scroll-target="#html"> <span class="header-section-number">7.1.9</span> HTML</a></li>
+<li><a href="#practice" class="nav-link" data-scroll-target="#practice"> <span class="header-section-number">7.1.10</span> Practice</a></li>
+<li><a href="#practice---add-text-with-html-tags" class="nav-link" data-scroll-target="#practice---add-text-with-html-tags"> <span class="header-section-number">7.1.11</span> Practice - Add text with HTML tags</a></li>
+<li><a href="#practice---add-image-with-the-img-tag" class="nav-link" data-scroll-target="#practice---add-image-with-the-img-tag"> <span class="header-section-number">7.1.12</span> Practice - Add image with the <code>img</code> tag</a></li>
+</ul></li>
+<li><a href="#layout-panels" class="nav-link" data-scroll-target="#layout-panels"> <span class="header-section-number">7.2</span> 4.2 Layout Panels</a>
+<ul class="collapse">
+<li><a href="#fluidrow" class="nav-link" data-scroll-target="#fluidrow"> <span class="header-section-number">7.2.1</span> <code>fluidRow()</code></a></li>
+<li><a href="#column" class="nav-link" data-scroll-target="#column"> <span class="header-section-number">7.2.2</span> <code>column()</code></a></li>
+<li><a href="#the-width-is-relative" class="nav-link" data-scroll-target="#the-width-is-relative"> <span class="header-section-number">7.2.3</span> The width is relative</a></li>
+<li><a href="#panels" class="nav-link" data-scroll-target="#panels"> <span class="header-section-number">7.2.4</span> Panels</a></li>
+<li><a href="#wellpanel" class="nav-link" data-scroll-target="#wellpanel"> <span class="header-section-number">7.2.5</span> <code>wellPanel()</code></a></li>
+<li><a href="#panels-1" class="nav-link" data-scroll-target="#panels-1"> <span class="header-section-number">7.2.6</span> Panels</a></li>
+<li><a href="#sidebarpanel-and-mainpanel" class="nav-link" data-scroll-target="#sidebarpanel-and-mainpanel"> <span class="header-section-number">7.2.7</span> <code>sidebarPanel()</code> and <code>mainPanel()</code></a></li>
+<li><a href="#section-2" class="nav-link" data-scroll-target="#section-2"> <span class="header-section-number">7.2.8</span> </a></li>
+<li><a href="#titlepanel" class="nav-link" data-scroll-target="#titlepanel"> <span class="header-section-number">7.2.9</span> <code>titlePanel()</code></a></li>
+<li><a href="#titlepanel-with-windowtitle" class="nav-link" data-scroll-target="#titlepanel-with-windowtitle"> <span class="header-section-number">7.2.10</span> <code>titlePanel()</code> with <code>windowTitle</code></a></li>
+<li><a href="#conditionalpanel" class="nav-link" data-scroll-target="#conditionalpanel"> <span class="header-section-number">7.2.11</span> <code>conditionalPanel()</code></a></li>
+<li><a href="#section-3" class="nav-link" data-scroll-target="#section-3"> <span class="header-section-number">7.2.12</span> </a></li>
+</ul></li>
+<li><a href="#tabs-and-tabset-panels" class="nav-link" data-scroll-target="#tabs-and-tabset-panels"> <span class="header-section-number">7.3</span> 4.3 Tabs and tabset panels</a>
+<ul class="collapse">
+<li><a href="#section-4" class="nav-link" data-scroll-target="#section-4"> <span class="header-section-number">7.3.1</span> </a></li>
+<li><a href="#tabsetpanel-and-tabpanel" class="nav-link" data-scroll-target="#tabsetpanel-and-tabpanel"> <span class="header-section-number">7.3.2</span> <code>tabsetPanel()</code> and <code>tabPanel()</code></a></li>
+<li><a href="#tabs-and-reactivity" class="nav-link" data-scroll-target="#tabs-and-reactivity"> <span class="header-section-number">7.3.3</span> Tabs and reactivity</a></li>
+<li><a href="#navlistpanel" class="nav-link" data-scroll-target="#navlistpanel"> <span class="header-section-number">7.3.4</span> <code>navlistPanel()</code></a></li>
+<li><a href="#tabs" class="nav-link" data-scroll-target="#tabs"> <span class="header-section-number">7.3.5</span> Tabs</a></li>
+</ul></li>
+<li><a href="#theming" class="nav-link" data-scroll-target="#theming"> <span class="header-section-number">7.4</span> 4.4 Theming</a>
+<ul class="collapse">
+<li><a href="#shinythemes" class="nav-link" data-scroll-target="#shinythemes"> <span class="header-section-number">7.4.1</span> shinythemes</a></li>
+<li><a href="#themeselector" class="nav-link" data-scroll-target="#themeselector"> <span class="header-section-number">7.4.2</span> <code>themeSelector()</code></a></li>
+<li><a href="#other-theming-options" class="nav-link" data-scroll-target="#other-theming-options"> <span class="header-section-number">7.4.3</span> Other theming options</a></li>
+<li><a href="#section-5" class="nav-link" data-scroll-target="#section-5"> <span class="header-section-number">7.4.4</span> </a></li>
+<li><a href="#practice---theming" class="nav-link" data-scroll-target="#practice---theming"> <span class="header-section-number">7.4.5</span> Practice - Theming</a></li>
+</ul></li>
+<li><a href="#congratulations" class="nav-link" data-scroll-target="#congratulations"> <span class="header-section-number">7.5</span> 4.5 Congratulations!</a>
+<ul class="collapse">
+<li><a href="#what-did-you-learn" class="nav-link" data-scroll-target="#what-did-you-learn"> <span class="header-section-number">7.5.1</span> What did you learn?</a></li>
+<li><a href="#shinyapps.io" class="nav-link" data-scroll-target="#shinyapps.io"> <span class="header-section-number">7.5.2</span> shinyapps.io</a></li>
+<li><a href="#shiny-server" class="nav-link" data-scroll-target="#shiny-server"> <span class="header-section-number">7.5.3</span> Shiny Server</a></li>
+<li><a href="#pro-options" class="nav-link" data-scroll-target="#pro-options"> <span class="header-section-number">7.5.4</span> Pro options</a></li>
+<li><a href="#congratulations-1" class="nav-link" data-scroll-target="#congratulations-1"> <span class="header-section-number">7.5.5</span> Congratulations!</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
-<section id="customizing-ui" class="level1">
-<h1>Customizing UI</h1>
-<section id="understanding-how-to-build-a-user-interface" class="level3">
-<h3 class="anchored" data-anchor-id="understanding-how-to-build-a-user-interface">Understanding how to build a user interface</h3>
-</section>
-<section id="interface-builder-functions" class="level2">
-<h2 class="anchored" data-anchor-id="interface-builder-functions">4.1 Interface builder functions</h2>
-<section id="section" class="level3">
-<h3 class="anchored" data-anchor-id="section"></h3>
+<header id="title-block-header" class="quarto-title-block default">
+
+<div class="quarto-title"><h1 class="title d-none d-lg-block display-7"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Customizing UI</span></h1></div></header>
+
+<p>Understanding how to build a user interface</p>
+<section id="interface-builder-functions" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="interface-builder-functions"><span class="header-section-number">7.1</span> 4.1 Interface builder functions</h2>
+<section id="section" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="section"><span class="header-section-number">7.1.1</span> </h3>
 <p>Earlier in the course we mentioned that the UI is ultimately built with HTML. We actually use R functions to make the UI, but they get translated to HTML.</p>
 <p>In this module we build on this idea to develop more complex app interfaces. More specifically, we discuss <strong>tags</strong>.</p>
 </section>
-<section id="tags" class="level3">
-<h3 class="anchored" data-anchor-id="tags">tags</h3>
+<section id="tags" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="tags"><span class="header-section-number">7.1.2</span> tags</h3>
 <p>Shiny comes with a list of functions saved under tags that allow us to access HTML tags and use them to add static (as opposed to reactive) content to our apps.</p>
 <p>The <code>tags</code> object in shiny is a list of 100+ simple functions for constructing HTML documents. Each of the elements in this list is a function that maps to an HTML tag.</p>
 <div class="cell" data-layout-align="center">
@@ -183,8 +361,8 @@
 </div>
 </div>
 </section>
-<section id="tag---html" class="level3">
-<h3 class="anchored" data-anchor-id="tag---html">tag -&gt; HTML</h3>
+<section id="tag---html" class="level3" data-number="7.1.3">
+<h3 data-number="7.1.3" class="anchored" data-anchor-id="tag---html"><span class="header-section-number">7.1.3</span> tag -&gt; HTML</h3>
 <p>For example, let’s use the <code>b</code> tag, which is used for bolding text in HTML. The function is <code>tags$b()</code>.</p>
 <p>You can pass a text string, in quotation marks, to this function, like “This is my first app”.</p>
 <div class="cell" data-layout-align="center">
@@ -199,8 +377,8 @@
 </div>
 </div>
 </section>
-<section id="header-tags" class="level3">
-<h3 class="anchored">Header tags</h3>
+<section id="header-tags" class="level3" data-number="7.1.4">
+<h3 data-number="7.1.4" class="anchored"><span class="header-section-number">7.1.4</span> Header tags</h3>
 <p>So how would you use these tags in building an app?</p>
 <p>You might use the various levels of headers if it makes sense for to have subheadings in my app.</p>
 <p>For example <code>tags$h1()</code>, <code>tags$h2()</code>, and <code>tags$h3()</code> to create first, second, and third level headings, etc.</p>
@@ -232,8 +410,8 @@
 </div>
 <hr>
 </section>
-<section id="linked-text" class="level3">
-<h3 class="anchored" data-anchor-id="linked-text">Linked text</h3>
+<section id="linked-text" class="level3" data-number="7.1.5">
+<h3 data-number="7.1.5" class="anchored" data-anchor-id="linked-text"><span class="header-section-number">7.1.5</span> Linked text</h3>
 <p>If you have references you want to link to at the bottom of you app, you can use the a tag with the <code>href</code> argument for specifying a URL.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb6"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
@@ -263,8 +441,8 @@
 </div>
 <hr>
 </section>
-<section id="nested-tags" class="level3">
-<h3 class="anchored" data-anchor-id="nested-tags">Nested tags</h3>
+<section id="nested-tags" class="level3" data-number="7.1.6">
+<h3 data-number="7.1.6" class="anchored" data-anchor-id="nested-tags"><span class="header-section-number">7.1.6</span> Nested tags</h3>
 <p>You can also nest tags within each other to create something like a new paragraph with the <code>p</code> tag and some text in that paragraph where certain words are italicized with the <code>em</code> tag and certain are bolded with the <code>b</code> tag.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb7"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
@@ -302,8 +480,8 @@ adipiscing elit.
 </div>
 <hr>
 </section>
-<section id="common-tags" class="level3">
-<h3 class="anchored" data-anchor-id="common-tags">Common tags</h3>
+<section id="common-tags" class="level3" data-number="7.1.7">
+<h3 data-number="7.1.7" class="anchored" data-anchor-id="common-tags"><span class="header-section-number">7.1.7</span> Common tags</h3>
 <p>Additionally, the most commonly used tags are wrapped in their own functions and you can use them without the tags list.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb8"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>tags<span class="sc">$</span><span class="fu">p</span>(...)       <span class="ot">-&gt;</span> <span class="fu">p</span>(...)</span>
@@ -325,8 +503,8 @@ adipiscing elit.
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>tags<span class="sc">$</span><span class="fu">hr</span>(...)      <span class="ot">-&gt;</span> <span class="fu">hr</span>(...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section-1" class="level3">
-<h3 class="anchored" data-anchor-id="section-1"></h3>
+<section id="section-1" class="level3" data-number="7.1.8">
+<h3 data-number="7.1.8" class="anchored" data-anchor-id="section-1"><span class="header-section-number">7.1.8</span> </h3>
 <p>These are functions like:</p>
 <ul>
 <li><p><code>a()</code> for anchor text.</p>
@@ -361,23 +539,23 @@ adipiscing elit.
 </ul>
 <p>The function names correspond to the tag names, and the functions accept text strings as arguments. For example <code>tags$h1("First level heading")</code> is equivalent to <code>h1("First level heading")</code>.</p>
 </section>
-<section id="html" class="level3">
-<h3 class="anchored" data-anchor-id="html">HTML</h3>
+<section id="html" class="level3" data-number="7.1.9">
+<h3 data-number="7.1.9" class="anchored" data-anchor-id="html"><span class="header-section-number">7.1.9</span> HTML</h3>
 <p>If you’re comfortable with HTML, an alternative is to directly use HTML syntax and wrap your HTML code with the HTML function.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb19"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">HTML</span>(<span class="st">"Hello world, &lt;br/&gt; and then a line break."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <pre><code>Hello world, &lt;br/&gt; and then a line break.</code></pre>
 </section>
-<section id="practice" class="level3">
-<h3 class="anchored" data-anchor-id="practice">Practice</h3>
+<section id="practice" class="level3" data-number="7.1.10">
+<h3 data-number="7.1.10" class="anchored" data-anchor-id="practice"><span class="header-section-number">7.1.10</span> Practice</h3>
 <p>Next, let’s work on some exercises on adding HTML elements to our apps to customize appearance.</p>
 <p>These next exercises will demo a few of the simpler interface builder options with HTML code.</p>
 </section>
-<section id="practice---add-text-with-html-tags" class="level3">
-<h3 class="anchored" data-anchor-id="practice---add-text-with-html-tags">Practice - Add text with HTML tags</h3>
-<section id="your-turn" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn">Your turn</h4>
+<section id="practice---add-text-with-html-tags" class="level3" data-number="7.1.11">
+<h3 data-number="7.1.11" class="anchored" data-anchor-id="practice---add-text-with-html-tags"><span class="header-section-number">7.1.11</span> Practice - Add text with HTML tags</h3>
+<section id="your-turn" class="level4" data-number="7.1.11.1">
+<h4 data-number="7.1.11.1" class="anchored" data-anchor-id="your-turn"><span class="header-section-number">7.1.11.1</span> Your turn</h4>
 <p>Add explanatory text to your movie app by using HTML tags in the main panel.</p>
 <p>Below is some sample text you can add. Note that you should replace <code>[NUMBER OF MOVIES]</code> with with the number of movies in the sample, and instead of hardcoding this value, you can use <code>nrow(movies)</code> to calculate it.</p>
 <pre><code>These data were obtained from &lt;a href="http://www.imbd.com/"&gt;IMBD&lt;/a&gt; and 
@@ -622,10 +800,10 @@ Show solution
 </details>
 </section>
 </section>
-<section id="practice---add-image-with-the-img-tag" class="level3">
-<h3 class="anchored" data-anchor-id="practice---add-image-with-the-img-tag">Practice - Add image with the <code>img</code> tag</h3>
-<section id="your-turn-1" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-1">Your turn</h4>
+<section id="practice---add-image-with-the-img-tag" class="level3" data-number="7.1.12">
+<h3 data-number="7.1.12" class="anchored" data-anchor-id="practice---add-image-with-the-img-tag"><span class="header-section-number">7.1.12</span> Practice - Add image with the <code>img</code> tag</h3>
+<section id="your-turn-1" class="level4" data-number="7.1.12.1">
+<h4 data-number="7.1.12.1" class="anchored" data-anchor-id="your-turn-1"><span class="header-section-number">7.1.12.1</span> Your turn</h4>
 <p>Now let’s practice adding an image to a very simple app.</p>
 <p>Note that if you’d like to use a local image for with your app, you’ll first have to save the image in a folder <code>www/</code> within your root directory. You’ll see what we mean when you run the demo in the RStudio Cloud Project. Set a height and width for your image as well.</p>
 <div class="proj">
@@ -683,11 +861,11 @@ Show solution
 </section>
 </section>
 </section>
-<section id="layout-panels" class="level2">
-<h2 class="anchored" data-anchor-id="layout-panels">4.2 Layout Panels</h2>
+<section id="layout-panels" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="layout-panels"><span class="header-section-number">7.2</span> 4.2 Layout Panels</h2>
 <p>In this section we discuss the layout of a Shiny app.</p>
-<section id="fluidrow" class="level3">
-<h3 class="anchored" data-anchor-id="fluidrow"><code>fluidRow()</code></h3>
+<section id="fluidrow" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="fluidrow"><span class="header-section-number">7.2.1</span> <code>fluidRow()</code></h3>
 <p>One useful function for customizing the layout of your app is <code>fluidRow()</code>. This function creates horizontal rows where objects can be placed.</p>
 <p>You can add as many rows as you want, but you want to be careful about expanding your app too much vertically as your users might not be willing to scroll down to interact with your app in full.</p>
 <div class="cell" data-layout-align="center">
@@ -723,8 +901,8 @@ text
 </div>
 <hr>
 </section>
-<section id="column" class="level3">
-<h3 class="anchored" data-anchor-id="column"><code>column()</code></h3>
+<section id="column" class="level3" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="column"><span class="header-section-number">7.2.2</span> <code>column()</code></h3>
 <p>The column function is also incredibly useful. It adds columns within a row, and it requires that you define a width for each column.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb27"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
@@ -766,8 +944,8 @@ text
 </div>
 <hr>
 </section>
-<section id="the-width-is-relative" class="level3">
-<h3 class="anchored" data-anchor-id="the-width-is-relative">The width is relative</h3>
+<section id="the-width-is-relative" class="level3" data-number="7.2.3">
+<h3 data-number="7.2.3" class="anchored" data-anchor-id="the-width-is-relative"><span class="header-section-number">7.2.3</span> The width is relative</h3>
 <p>The total width of columns within any given row should add up to 12. You can use the columns to place output objects like a plots or summary tables in specific places in your app.</p>
 <hr>
 <div class="cell" data-layout-align="center">
@@ -803,13 +981,13 @@ width = 3
 </div>
 <hr>
 </section>
-<section id="panels" class="level3">
-<h3 class="anchored" data-anchor-id="panels">Panels</h3>
+<section id="panels" class="level3" data-number="7.2.4">
+<h3 data-number="7.2.4" class="anchored" data-anchor-id="panels"><span class="header-section-number">7.2.4</span> Panels</h3>
 <p>You can use panels to group multiple elements into a single element that has its own properties.</p>
 <p>This is especially important and useful for complex apps with a large number of inputs and outputs such that it might not be clear to the user where to get started.</p>
 </section>
-<section id="wellpanel" class="level3">
-<h3 class="anchored" data-anchor-id="wellpanel"><code>wellPanel()</code></h3>
+<section id="wellpanel" class="level3" data-number="7.2.5">
+<h3 data-number="7.2.5" class="anchored" data-anchor-id="wellpanel"><span class="header-section-number">7.2.5</span> <code>wellPanel()</code></h3>
 <p>The <code>wellpanel()</code> function groups elements into a grey well, or a box with rounded corners. This is a look you should be used to seeing in shiny apps by now.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb28"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
@@ -845,15 +1023,15 @@ width = 3
 </div>
 <hr>
 </section>
-<section id="panels-1" class="level3">
-<h3 class="anchored" data-anchor-id="panels-1">Panels</h3>
+<section id="panels-1" class="level3" data-number="7.2.6">
+<h3 data-number="7.2.6" class="anchored" data-anchor-id="panels-1"><span class="header-section-number">7.2.6</span> Panels</h3>
 <p>Shiny offers 12 different panels, but we’ll take a look at a small subset of them in this section, and then you’ll get to work with a few others in the exercises that follow.</p>
 <div class="cell" data-layout-align="center">
 
 </div>
 </section>
-<section id="sidebarpanel-and-mainpanel" class="level3">
-<h3 class="anchored" data-anchor-id="sidebarpanel-and-mainpanel"><code>sidebarPanel()</code> and <code>mainPanel()</code></h3>
+<section id="sidebarpanel-and-mainpanel" class="level3" data-number="7.2.7">
+<h3 data-number="7.2.7" class="anchored" data-anchor-id="sidebarpanel-and-mainpanel"><span class="header-section-number">7.2.7</span> <code>sidebarPanel()</code> and <code>mainPanel()</code></h3>
 <p>We have made heavy use of <code>sidebarPanel()</code> and <code>mainPanel()</code> in our apps in this course. However we mostly stuck with their default widths.</p>
 <p>The default width for a <code>sidebarPanel()</code> is 4 and for a <code>mainPanel()</code> is 8.</p>
 <div class="cell" data-layout-align="center">
@@ -898,8 +1076,8 @@ Usually outputs go here, width = 8 by default
 </div>
 <hr>
 </section>
-<section id="section-2" class="level3">
-<h3 class="anchored" data-anchor-id="section-2"></h3>
+<section id="section-2" class="level3" data-number="7.2.8">
+<h3 data-number="7.2.8" class="anchored" data-anchor-id="section-2"><span class="header-section-number">7.2.8</span> </h3>
 <p>If you wanted to make an app where the <code>sidebar</code> and <code>mainPanel</code> are of equal width, so the app is split down the middle, you can specify a width argument to the <code>sidebarPanel()</code> and <code>mainPanel()</code> functions and set each to 6.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb30"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
@@ -931,8 +1109,8 @@ Usually outputs go here, width = 8 by default
 </div>
 <hr>
 </section>
-<section id="titlepanel" class="level3">
-<h3 class="anchored"><code>titlePanel()</code></h3>
+<section id="titlepanel" class="level3" data-number="7.2.9">
+<h3 data-number="7.2.9" class="anchored"><span class="header-section-number">7.2.9</span> <code>titlePanel()</code></h3>
 <p>The <code>titlePanel()</code> is used to create a panel containing an application title. Often it makes sense to include this panel outside the <code>sidebarLayout()</code>. But in addition to the title on the page, youmight want to also change the text that shows up on the browser tab for our app, especially if our title is long.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb31"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
@@ -966,8 +1144,8 @@ Usually outputs go here, width = 8 by default
 </div>
 <hr>
 </section>
-<section id="titlepanel-with-windowtitle" class="level3">
-<h3 class="anchored"><code>titlePanel()</code> with <code>windowTitle</code></h3>
+<section id="titlepanel-with-windowtitle" class="level3" data-number="7.2.10">
+<h3 data-number="7.2.10" class="anchored"><span class="header-section-number">7.2.10</span> <code>titlePanel()</code> with <code>windowTitle</code></h3>
 <p>To customize this text you specify the <code>windowTitle</code> argument in the <code>titlePanel()</code>, which is by default equal to the application title. For example, your application title might be “Movie browser, 1970 to 2014”, but you might just want to make your window title “Movies”.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb32"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
@@ -1001,8 +1179,8 @@ Usually outputs go here, width = 8 by default
 </div>
 <hr>
 </section>
-<section id="conditionalpanel" class="level3">
-<h3 class="anchored" data-anchor-id="conditionalpanel"><code>conditionalPanel()</code></h3>
+<section id="conditionalpanel" class="level3" data-number="7.2.11">
+<h3 data-number="7.2.11" class="anchored" data-anchor-id="conditionalpanel"><span class="header-section-number">7.2.11</span> <code>conditionalPanel()</code></h3>
 <p>The last panel we’ll consider is <code>conditionalPanel()</code>, which creates a panel that is visible conditional upon the value of an input or an output.</p>
 <p>First, let’s see it in action in the app below. Switch between <em>any</em> and <em>selected</em> number of digits to see how the sidebar panel changes.</p>
 <hr>
@@ -1047,8 +1225,8 @@ Usually outputs go here, width = 8 by default
 </div>
 <hr>
 </section>
-<section id="section-3" class="level3">
-<h3 class="anchored" data-anchor-id="section-3"></h3>
+<section id="section-3" class="level3" data-number="7.2.12">
+<h3 data-number="7.2.12" class="anchored" data-anchor-id="section-3"><span class="header-section-number">7.2.12</span> </h3>
 <p>And here is the code that creates the app with the conditional panel.</p>
 <p>Under the hood this function evaluates a JavaScript expression once at startup and then whenever Shiny detects a relevant change or input/output.</p>
 <p>Being able to display panels conditional on previous user selections is a powerful feature of Shiny.</p>
@@ -1100,14 +1278,14 @@ Usually outputs go here, width = 8 by default
 </div>
 </section>
 </section>
-<section id="tabs-and-tabset-panels" class="level2">
-<h2 class="anchored" data-anchor-id="tabs-and-tabset-panels">4.3 Tabs and tabset panels</h2>
-<section id="section-4" class="level3">
-<h3 class="anchored" data-anchor-id="section-4"></h3>
+<section id="tabs-and-tabset-panels" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="tabs-and-tabset-panels"><span class="header-section-number">7.3</span> 4.3 Tabs and tabset panels</h2>
+<section id="section-4" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="section-4"><span class="header-section-number">7.3.1</span> </h3>
 <p>If the amount of information you want to communicate to your users does not fit well on a page, or there is detailed information, like raw data, that you want to make available to your users but not necessarily feature prominently in your app, you can make use of tabs to distribute this information to stackable tab panels.</p>
 </section>
-<section id="tabsetpanel-and-tabpanel" class="level3">
-<h3 class="anchored"><code>tabsetPanel()</code> and <code>tabPanel()</code></h3>
+<section id="tabsetpanel-and-tabpanel" class="level3" data-number="7.3.2">
+<h3 data-number="7.3.2" class="anchored"><span class="header-section-number">7.3.2</span> <code>tabsetPanel()</code> and <code>tabPanel()</code></h3>
 <p>Tabsets are created by calling the <code>tabsetPanel()</code> function with a list of tabs created by <code>tabPanel()</code>.</p>
 <p>Each tab panel has a unique title and a list of output elements which are rendered vertically within the tab.</p>
 <p>In this example we display</p>
@@ -1177,31 +1355,31 @@ Usually outputs go here, width = 8 by default
 </div>
 <div class="col-sm-8" role="main">
 <div class="tabbable">
-<ul class="nav nav-tabs" data-tabsetid="4476">
+<ul class="nav nav-tabs" data-tabsetid="7661">
 <li class="active">
-<a href="#tab-4476-1" data-toggle="tab" data-bs-toggle="tab" data-value="Plot">Plot</a>
+<a href="#tab-7661-1" data-toggle="tab" data-bs-toggle="tab" data-value="Plot">Plot</a>
 </li>
 <li>
-<a href="#tab-4476-2" data-toggle="tab" data-bs-toggle="tab" data-value="Summary">Summary</a>
+<a href="#tab-7661-2" data-toggle="tab" data-bs-toggle="tab" data-value="Summary">Summary</a>
 </li>
 <li>
-<a href="#tab-4476-3" data-toggle="tab" data-bs-toggle="tab" data-value="Data">Data</a>
+<a href="#tab-7661-3" data-toggle="tab" data-bs-toggle="tab" data-value="Data">Data</a>
 </li>
 <li>
-<a href="#tab-4476-4" data-toggle="tab" data-bs-toggle="tab" data-value="Reference">Reference</a>
+<a href="#tab-7661-4" data-toggle="tab" data-bs-toggle="tab" data-value="Reference">Reference</a>
 </li>
 </ul>
-<div class="tab-content" data-tabsetid="4476">
-<div class="tab-pane active" data-value="Plot" id="tab-4476-1">
+<div class="tab-content" data-tabsetid="7661">
+<div class="tab-pane active" data-value="Plot" id="tab-7661-1">
 <div id="plot" class="shiny-plot-output" style="width:100%;height:400px;"></div>
 </div>
-<div class="tab-pane" data-value="Summary" id="tab-4476-2">
+<div class="tab-pane" data-value="Summary" id="tab-7661-2">
 <div id="summary" class="shiny-html-output"></div>
 </div>
-<div class="tab-pane" data-value="Data" id="tab-4476-3">
+<div class="tab-pane" data-value="Data" id="tab-7661-3">
 <div id="data" style="width:100%; height:auto; " class="datatables html-widget html-widget-output"></div>
 </div>
-<div class="tab-pane" data-value="Reference" id="tab-4476-4">
+<div class="tab-pane" data-value="Reference" id="tab-7661-4">
 <p>
 There data were obtained from
 <a href="http://www.imdb.com/">IMDB</a>
@@ -1253,15 +1431,15 @@ randomly sampled movies released between 1972 to 2014 in the Unites States.
 </div>
 <hr>
 </section>
-<section id="tabs-and-reactivity" class="level3">
-<h3 class="anchored" data-anchor-id="tabs-and-reactivity">Tabs and reactivity</h3>
+<section id="tabs-and-reactivity" class="level3" data-number="7.3.3">
+<h3 data-number="7.3.3" class="anchored" data-anchor-id="tabs-and-reactivity"><span class="header-section-number">7.3.3</span> Tabs and reactivity</h3>
 <p>Note that in the previous example the user first selected a subset of the data, <code>movies_subset()</code>, then this new sampled data got used in four separate tabs.</p>
 <p>Introducing tabs into our user interface underlines the importance of creating reactive expressions for shared data.</p>
 <p>If the dataset is expensive to compute, then the user interface could be slow to render if each tab were required to do the computation.</p>
 <p>Instead, we calculate the data once in a reactive expression, and then have the result be shared by all of the output tabs.</p>
 </section>
-<section id="navlistpanel" class="level3">
-<h3 class="anchored"><code>navlistPanel()</code></h3>
+<section id="navlistpanel" class="level3" data-number="7.3.4">
+<h3 data-number="7.3.4" class="anchored"><span class="header-section-number">7.3.4</span> <code>navlistPanel()</code></h3>
 <p>Another option for laying out tabs is using the <code>navlistpanel()</code>, which lists the tabs vertically down the side, as opposed to horizontally across the screen.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb38"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mainPanel</span>(</span>
@@ -1317,33 +1495,33 @@ randomly sampled movies released between 1972 to 2014 in the Unites States.
 <div class="col-sm-8" role="main">
 <div class="row">
 <div class="col-sm-4 well">
-<ul class="nav nav-pills nav-stacked" data-tabsetid="7106">
+<ul class="nav nav-pills nav-stacked" data-tabsetid="9806">
 <li class="active">
-<a href="#tab-7106-1" data-toggle="tab" data-bs-toggle="tab" data-value="Plot">Plot</a>
+<a href="#tab-9806-1" data-toggle="tab" data-bs-toggle="tab" data-value="Plot">Plot</a>
 </li>
 <li>
-<a href="#tab-7106-2" data-toggle="tab" data-bs-toggle="tab" data-value="Summary">Summary</a>
+<a href="#tab-9806-2" data-toggle="tab" data-bs-toggle="tab" data-value="Summary">Summary</a>
 </li>
 <li>
-<a href="#tab-7106-3" data-toggle="tab" data-bs-toggle="tab" data-value="Data">Data</a>
+<a href="#tab-9806-3" data-toggle="tab" data-bs-toggle="tab" data-value="Data">Data</a>
 </li>
 <li>
-<a href="#tab-7106-4" data-toggle="tab" data-bs-toggle="tab" data-value="Reference">Reference</a>
+<a href="#tab-9806-4" data-toggle="tab" data-bs-toggle="tab" data-value="Reference">Reference</a>
 </li>
 </ul>
 </div>
 <div class="col-sm-8">
-<div class="tab-content" data-tabsetid="7106">
-<div class="tab-pane active" data-value="Plot" id="tab-7106-1">
+<div class="tab-content" data-tabsetid="9806">
+<div class="tab-pane active" data-value="Plot" id="tab-9806-1">
 <div id="plot2" class="shiny-plot-output" style="width:100%;height:400px;"></div>
 </div>
-<div class="tab-pane" data-value="Summary" id="tab-7106-2">
+<div class="tab-pane" data-value="Summary" id="tab-9806-2">
 <div id="summary2" class="shiny-html-output"></div>
 </div>
-<div class="tab-pane" data-value="Data" id="tab-7106-3">
+<div class="tab-pane" data-value="Data" id="tab-9806-3">
 <div id="data2" style="width:100%; height:auto; " class="datatables html-widget html-widget-output"></div>
 </div>
-<div class="tab-pane" data-value="Reference" id="tab-7106-4">
+<div class="tab-pane" data-value="Reference" id="tab-9806-4">
 <p>
 There data were obtained from
 <a href="http://www.imdb.com/">IMDB</a>
@@ -1395,15 +1573,15 @@ randomly sampled movies released between 1972 to 2014 in the United States.
 <span id="cb39-27"><a href="#cb39-27" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="tabs" class="level3">
-<h3 class="anchored" data-anchor-id="tabs">Tabs</h3>
+<section id="tabs" class="level3" data-number="7.3.5">
+<h3 data-number="7.3.5" class="anchored" data-anchor-id="tabs"><span class="header-section-number">7.3.5</span> Tabs</h3>
 <p>To recap, we use tab panels to create stackable panels, and use <code>tabsetPanel()</code> or <code>navlistPanel()</code> to arrange the tabs with a navigation across the page or down the side of the page.</p>
 </section>
 </section>
-<section id="theming" class="level2">
-<h2 class="anchored" data-anchor-id="theming">4.4 Theming</h2>
-<section id="shinythemes" class="level3">
-<h3 class="anchored" data-anchor-id="shinythemes">shinythemes</h3>
+<section id="theming" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="theming"><span class="header-section-number">7.4</span> 4.4 Theming</h2>
+<section id="shinythemes" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="shinythemes"><span class="header-section-number">7.4.1</span> shinythemes</h3>
 <p>There are many other ways of customizing the look of your app, including using custom CSS. However one quick and easy way of changing the look is using the prebuilt themes in the <code>shinythemes</code> package.</p>
 <p>In order to use one of these themes, you need to load the <code>shinythemes</code> package first. The package website has thumbnail images of each of the themes, but it can be difficult to tell exactly how the theme will look on your app.</p>
 <div class="cell" data-layout-align="center">
@@ -1416,8 +1594,8 @@ randomly sampled movies released between 1972 to 2014 in the United States.
 </div>
 </div>
 </section>
-<section id="themeselector" class="level3">
-<h3 class="anchored" data-anchor-id="themeselector"><code>themeSelector()</code></h3>
+<section id="themeselector" class="level3" data-number="7.4.2">
+<h3 data-number="7.4.2" class="anchored" data-anchor-id="themeselector"><span class="header-section-number">7.4.2</span> <code>themeSelector()</code></h3>
 <p>A useful tool for browsing themes is the <code>themeSelector()</code> widget. To use this widget, simply add the widget to your app.</p>
 <p>It can be inserted anywhere inside of the application, although if it is put inside a tab, it will be visible only when that tab is showing. I usually place it right underneath the <code>fluidPage()</code> definition.</p>
 <p>This widget is to be used in development only. Once you decide on a theme, you should remove the widget and just define the theme you want using the <code>shinytheme()</code> function.</p>
@@ -1437,21 +1615,21 @@ randomly sampled movies released between 1972 to 2014 in the United States.
 </div>
 </div>
 </section>
-<section id="other-theming-options" class="level3">
-<h3 class="anchored" data-anchor-id="other-theming-options">Other theming options</h3>
+<section id="other-theming-options" class="level3" data-number="7.4.3">
+<h3 data-number="7.4.3" class="anchored" data-anchor-id="other-theming-options"><span class="header-section-number">7.4.3</span> Other theming options</h3>
 <ul>
 <li><p>The <a href="https://rstudio.github.io/bslib/">bslib</a> package provides tools for customizing <a href="https://getbootstrap.com/docs/4.6/getting-started/theming/">Bootstrap themes</a> directly from R, making it much easier to customize the appearance of Shiny apps &amp; R Markdown documents.</p></li>
 <li><p>The <a href="https://rstudio.github.io/thematic/">thematic</a> package provides a functionality for simplified theming of ggplot2, lattice, and {base} R graphics as well as automatic theming of these plots within a Shiny app.</p></li>
 </ul>
 </section>
-<section id="section-5" class="level3">
-<h3 class="anchored" data-anchor-id="section-5"></h3>
+<section id="section-5" class="level3" data-number="7.4.4">
+<h3 data-number="7.4.4" class="anchored" data-anchor-id="section-5"><span class="header-section-number">7.4.4</span> </h3>
 <p>Next up you get to build an app with tabs and see how it looks with different shiny themes.</p>
 </section>
-<section id="practice---theming" class="level3">
-<h3 class="anchored" data-anchor-id="practice---theming">Practice - Theming</h3>
-<section id="your-turn-2" class="level4">
-<h4 class="anchored" data-anchor-id="your-turn-2">Your turn</h4>
+<section id="practice---theming" class="level3" data-number="7.4.5">
+<h3 data-number="7.4.5" class="anchored" data-anchor-id="practice---theming"><span class="header-section-number">7.4.5</span> Practice - Theming</h3>
+<section id="your-turn-2" class="level4" data-number="7.4.5.1">
+<h4 data-number="7.4.5.1" class="anchored" data-anchor-id="your-turn-2"><span class="header-section-number">7.4.5.1</span> Your turn</h4>
 <p>Pick a theme and apply to the existing app. See https://rstudio.github.io/shinythemes for more on theme options.</p>
 <div class="proj">
 <p><em>Complete the exercise by navigating to the RStudio Cloud Project titled <strong>4-4 Customize the appearance of your app with shinythemes</strong> in your RStudio Workspace</em></p>
@@ -1700,11 +1878,11 @@ Show solution
 </section>
 </section>
 </section>
-<section id="congratulations" class="level2">
-<h2 class="anchored" data-anchor-id="congratulations">4.5 Congratulations!</h2>
+<section id="congratulations" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="congratulations"><span class="header-section-number">7.5</span> 4.5 Congratulations!</h2>
 <p>You now know how to get started with building web apps in R with Shiny!</p>
-<section id="what-did-you-learn" class="level3">
-<h3 class="anchored" data-anchor-id="what-did-you-learn">What did you learn?</h3>
+<section id="what-did-you-learn" class="level3" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="what-did-you-learn"><span class="header-section-number">7.5.1</span> What did you learn?</h3>
 <p>In this course you have learned:</p>
 <ul>
 <li>How to design a Shiny app from scratch</li>
@@ -1715,28 +1893,28 @@ Show solution
 <p>We hope you enjoyed the course and that the topics we discussed in this course motivated you to build your first, and second, and third Shiny app!</p>
 <p>Once you build your first app, you have a variety of deployment options.</p>
 </section>
-<section id="shinyapps.io" class="level3">
-<h3 class="anchored" data-anchor-id="shinyapps.io">shinyapps.io</h3>
+<section id="shinyapps.io" class="level3" data-number="7.5.2">
+<h3 data-number="7.5.2" class="anchored" data-anchor-id="shinyapps.io"><span class="header-section-number">7.5.2</span> shinyapps.io</h3>
 <p>The first is shinyapps.io. This is a server maintained by RStudio, that is easy to use, secure, and scalable. It comes with built in metrics and has a free tier available.</p>
 </section>
-<section id="shiny-server" class="level3">
-<h3 class="anchored" data-anchor-id="shiny-server">Shiny Server</h3>
+<section id="shiny-server" class="level3" data-number="7.5.3">
+<h3 data-number="7.5.3" class="anchored" data-anchor-id="shiny-server"><span class="header-section-number">7.5.3</span> Shiny Server</h3>
 <p>If you prefer to build your own server you can use Shiny Server, which is free and open source. It runs on premises, moving your computation closer to your data.</p>
 </section>
-<section id="pro-options" class="level3">
-<h3 class="anchored" data-anchor-id="pro-options">Pro options</h3>
+<section id="pro-options" class="level3" data-number="7.5.4">
+<h3 data-number="7.5.4" class="anchored" data-anchor-id="pro-options"><span class="header-section-number">7.5.4</span> Pro options</h3>
 <p>RStudio also offers a professional option for deploying your apps: RStudio Connect. You can find out more about all of these options at https://shiny.rstudio.com/deploy.</p>
 </section>
-<section id="congratulations-1" class="level3">
-<h3 class="anchored" data-anchor-id="congratulations-1">Congratulations!</h3>
+<section id="congratulations-1" class="level3" data-number="7.5.5">
+<h3 data-number="7.5.5" class="anchored" data-anchor-id="congratulations-1"><span class="header-section-number">7.5.5</span> Congratulations!</h3>
 <p>What we covered in this course is just the tip of the Shiny iceberg, so we hope you decide to dive deeper to learn more.</p>
 <p>We can’t wait to see the apps you create online!</p>
 
+
+
 </section>
 </section>
-</section>
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
 <script type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const icon = "";
@@ -1813,6 +1991,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./reactivity.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Reactivity essentials</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

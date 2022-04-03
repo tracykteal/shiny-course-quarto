@@ -1,5 +1,9 @@
+---
+always_allow_html: true
+---
+
 # Customizing UI
-### Understanding how to build a user interface
+Understanding how to build a user interface
 
 
 ```{r setup, include=FALSE}

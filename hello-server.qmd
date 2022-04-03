@@ -1,3 +1,7 @@
+---
+always_allow_html: true
+---
+
 # Server function
 
 ```{r setup, include=FALSE}
