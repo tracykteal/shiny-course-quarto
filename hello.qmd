@@ -1,5 +1,4 @@
-
-# Hello Shiny
+# Getting Started
 
 ```{r setup, include=FALSE}
 library(shiny)
@@ -13,17 +12,7 @@ knitr::opts_chunk$set(
   )
 ```
 
-## Welcome
-
-### 
-
-This tutorial comprised of four modules will introduce you to Shiny, the R package for building interactive web apps straight from R.
-
-In this module, we'll begin by introducing the basics of Shiny.
-
-So, let's get to it...
-
-### Here is a Shiny app
+## Here is a Shiny app
 
 And not just any app, an app that you will be able to build by the end of this tutorial!
 
@@ -35,7 +24,6 @@ load("movies.RData")
 knitr::include_app("https://minecr.shinyapps.io/movies/", height = "1200px")
 ```
 
-### 
 
 We'll go through the technical details of each component of such an app throughout the tutorial, but for now let's take a high level view.
 
@@ -60,7 +48,7 @@ As much as it looks like there is a lot going on in this sample app, the app doe
 
 I hope you're excited to take it all in!
 
-### Background
+## Background
 
 Before we get started with Shiny, let's talk background...
 
@@ -68,7 +56,7 @@ This tutorial assumes that you are familiar with R as a programming language.
 
 Additionally, this tutorial uses packages from the [tidyverse](https://tidyverse.org/) (e.g. [**dplyr**](https://dplyr.tidyverse.org/) for data wrangling and [**ggplot2**](https://ggplot2.tidyverse.org/) for data visualisation). Your Shiny apps can use any package, but if you'd like to learn more about doing data science with the tidyverse, see [here](https://www.tidyverse.org/learn/).
 
-### Help
+## Help
 
 The tutorial is designed for beginners and many of the exercises have plenty of scaffolding to help you along the way.
 
@@ -82,7 +70,7 @@ knitr::include_graphics("images/help.png")
 
 2.  The second is the [**Shiny homepage**](https://shiny.rstudio.com). It is *the* place to learn about all things Shiny and to keep up to date with it as it evolves.
 
-### Tips
+## Tips
 
 Also, let's go over three very important tips for learning to develop Shiny apps:
 
@@ -96,7 +84,7 @@ Also, let's go over three very important tips for learning to develop Shiny apps
 knitr::include_graphics("images/missing-comma-ide.png")
 ```
 
-### Anatomy of a Shiny app
+## Anatomy of a Shiny app
 
 Alrighty, let's take a look at the anatomy of a Shiny app:
 
@@ -112,7 +100,7 @@ knitr::include_graphics("images/anatomy.png")
 
 -   We end each Shiny app script with a call to the shinyApp() function that puts these two components together to create the Shiny app object.
 
-### Data
+## Data
 
 In this tutorial we will build a simple movie browser app.
 
@@ -120,7 +108,7 @@ We will use data from the movies dataset, which combines data from two websites:
 
 So where does the loading of the data happen in an app?
 
-### Revisit
+## Revisit
 
 Let's revisit the app layout from a couple sections back.
 
@@ -132,13 +120,13 @@ We load the data before `ui` and `server` definitions so that it can be used in 
 
 Alright, time for some practice!
 
-### Practice: What's in an app?
+## Practice: What's in an app?
 
 Which of these is not generally a part of the Shiny app architecture?" - A function that installs an R package - User interface - Server function - A function that creates Shiny app objects
 
 Answer: A function that installs an R package. You don't want to reinstall the package every time you run your app, so you should do this once in your console instead of within your Shiny app
 
-### Practice: First peek under the hood
+## Practice: First peek under the hood
 
 Below you can see the complete code to reproduce the app we introduced in the previous section. Now you get to interact with the app yourself, and make small adjustments to it.
 
@@ -150,7 +138,7 @@ I've created an RStudio Cloud Project for you to test drive this code. Click the
 [<i class="fa fa-cloud"></i> Go to RStudio Cloud Workspace](https://rstudio.cloud/spaces/81721/join?access_code=I4VJaNsKfTqR3Td9hLP7E1nz8%2FtMg6Xbw9Bgqumv){.btn .test-drive}
 :::
 
-#### Your turn
+## Your turn
 
 -   Once your RStudio Cloud Project is open to the script `app.R`, click <img src="images/run-app.png" alt="Run App" height="25px"/> to run the code and generate the app.
 -   Play with the input selectors for the Y-axis and the X-axis and observe how the output changes.

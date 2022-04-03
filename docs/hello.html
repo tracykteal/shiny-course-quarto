@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-99.9.9">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Shiny Getting Started - 1&nbsp; Getting Started</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+  <script src="site_libs/quarto-nav/headroom.min.js"></script>
+  <script src="site_libs/clipboard/clipboard.min.js"></script>
+  <meta name="quarto:offset" content="./">
+  <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+  <script src="site_libs/quarto-search/fuse.min.js"></script>
+  <script src="site_libs/quarto-search/quarto-search.js"></script>
+  <link href="./hello-ui.html" rel="next">
+  <link href="./intro.html" rel="prev">
+  <script src="site_libs/quarto-html/quarto.js"></script>
+  <script src="site_libs/quarto-html/popper.min.js"></script>
+  <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="site_libs/quarto-html/anchor.min.js"></script>
+  <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+  <link id="quarto-text-highlighting-styles" href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <script src="site_libs/bootstrap/bootstrap.min.js"></script>
+  <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <script id="quarto-search-options" type="application/json">{
+    "location": "sidebar",
+    "copy-button": false,
+    "collapse-after": 3,
+    "panel-placement": "start",
+    "type": "textbox",
+    "limit": 20,
+    "language": {
+      "search-no-results-text": "No results",
+      "search-matching-documents-text": "matching documents",
+      "search-copy-link-title": "Copy link to search",
+      "search-hide-matches-text": "Hide additional matches",
+      "search-more-match-text": "more match in this document",
+      "search-more-matches-text": "more matches in this document",
+      "search-clear-button-title": "Clear",
+      "search-detached-cancel-button-title": "Cancel",
+      "search-submit-button-title": "Submit"
+    }
+  }</script>
+  <script src="site_libs/jquery-3.6.0/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body class="floating">
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Started</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Shiny Getting Started</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Hello Shiny</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hello.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Started</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hello-ui.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">User interface (UI)</span></a>
+  </div>
+</li>
+    </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./flow.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reactive Flow</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reactivity.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Reactivity essentials</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ui.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Customizing UI</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+<h2 id="toc-title">Table of contents</h2>
+<ul>
+<li><a href="#here-is-a-shiny-app" class="nav-link active" data-scroll-target="#here-is-a-shiny-app"> <span class="header-section-number">1.1</span> Here is a Shiny app</a></li>
+<li><a href="#background" class="nav-link" data-scroll-target="#background"> <span class="header-section-number">1.2</span> Background</a></li>
+<li><a href="#help" class="nav-link" data-scroll-target="#help"> <span class="header-section-number">1.3</span> Help</a></li>
+<li><a href="#tips" class="nav-link" data-scroll-target="#tips"> <span class="header-section-number">1.4</span> Tips</a></li>
+<li><a href="#anatomy-of-a-shiny-app" class="nav-link" data-scroll-target="#anatomy-of-a-shiny-app"> <span class="header-section-number">1.5</span> Anatomy of a Shiny app</a></li>
+<li><a href="#data" class="nav-link" data-scroll-target="#data"> <span class="header-section-number">1.6</span> Data</a></li>
+<li><a href="#revisit" class="nav-link" data-scroll-target="#revisit"> <span class="header-section-number">1.7</span> Revisit</a></li>
+<li><a href="#practice-whats-in-an-app" class="nav-link" data-scroll-target="#practice-whats-in-an-app"> <span class="header-section-number">1.8</span> Practice: What’s in an app?</a></li>
+<li><a href="#practice-first-peek-under-the-hood" class="nav-link" data-scroll-target="#practice-first-peek-under-the-hood"> <span class="header-section-number">1.9</span> Practice: First peek under the hood</a></li>
+<li><a href="#your-turn" class="nav-link" data-scroll-target="#your-turn"> <span class="header-section-number">1.10</span> Your turn</a></li>
+<li><a href="#user-interface-ui" class="nav-link" data-scroll-target="#user-interface-ui"> <span class="header-section-number">1.11</span> User interface (UI)</a>
+<ul class="collapse">
+<li><a href="#section" class="nav-link" data-scroll-target="#section"> <span class="header-section-number">1.11.1</span> </a></li>
+<li><a href="#example" class="nav-link" data-scroll-target="#example"> <span class="header-section-number">1.11.2</span> Example</a></li>
+<li><a href="#section-1" class="nav-link" data-scroll-target="#section-1"> <span class="header-section-number">1.11.3</span> </a></li>
+<li><a href="#fluidpage" class="nav-link" data-scroll-target="#fluidpage"> <span class="header-section-number">1.11.4</span> <code>fluidPage()</code></a></li>
+<li><a href="#layout" class="nav-link" data-scroll-target="#layout"> <span class="header-section-number">1.11.5</span> Layout</a></li>
+<li><a href="#input-controls" class="nav-link" data-scroll-target="#input-controls"> <span class="header-section-number">1.11.6</span> Input controls</a></li>
+<li><a href="#section-2" class="nav-link" data-scroll-target="#section-2"> <span class="header-section-number">1.11.7</span> </a></li>
+<li><a href="#section-3" class="nav-link" data-scroll-target="#section-3"> <span class="header-section-number">1.11.8</span> </a></li>
+<li><a href="#main-panel" class="nav-link" data-scroll-target="#main-panel"> <span class="header-section-number">1.11.9</span> Main Panel</a></li>
+<li><a href="#practice-extend-the-ui" class="nav-link" data-scroll-target="#practice-extend-the-ui"> <span class="header-section-number">1.11.10</span> Practice: Extend the UI</a></li>
+<li><a href="#practice-extend-the-ui-further" class="nav-link" data-scroll-target="#practice-extend-the-ui-further"> <span class="header-section-number">1.11.11</span> Practice: Extend the UI further</a></li>
+</ul></li>
+<li><a href="#server-function" class="nav-link" data-scroll-target="#server-function"> <span class="header-section-number">1.12</span> Server function</a>
+<ul class="collapse">
+<li><a href="#here-again-is-the-app-that-we-are-working-with-in-this-module" class="nav-link" data-scroll-target="#here-again-is-the-app-that-we-are-working-with-in-this-module"> <span class="header-section-number">1.12.1</span> Here again is the app that we are working with in this module</a></li>
+<li><a href="#this-is-the-server-function-code-for-this-app" class="nav-link" data-scroll-target="#this-is-the-server-function-code-for-this-app"> <span class="header-section-number">1.12.2</span> This is the server function code for this app</a></li>
+<li><a href="#at-the-outermost-layer" class="nav-link" data-scroll-target="#at-the-outermost-layer"> <span class="header-section-number">1.12.3</span> At the outermost layer</a></li>
+<li><a href="#output" class="nav-link" data-scroll-target="#output"> <span class="header-section-number">1.12.4</span> <code>output</code></a></li>
+<li><a href="#renderplot" class="nav-link" data-scroll-target="#renderplot"> <span class="header-section-number">1.12.5</span> <code>renderPlot()</code></a></li>
+<li><a href="#inputs" class="nav-link" data-scroll-target="#inputs"> <span class="header-section-number">1.12.6</span> Inputs</a></li>
+<li><a href="#rules-of-server-functions" class="nav-link" data-scroll-target="#rules-of-server-functions"> <span class="header-section-number">1.12.7</span> Rules of server functions</a></li>
+<li><a href="#output-types" class="nav-link" data-scroll-target="#output-types"> <span class="header-section-number">1.12.8</span> Output types</a></li>
+<li><a href="#practice-matching-inputs-and-outputs" class="nav-link" data-scroll-target="#practice-matching-inputs-and-outputs"> <span class="header-section-number">1.12.9</span> Practice: Matching inputs and outputs</a></li>
+<li><a href="#reactivity" class="nav-link" data-scroll-target="#reactivity"> <span class="header-section-number">1.12.10</span> Reactivity</a></li>
+<li><a href="#putting-all-the-pieces-together" class="nav-link" data-scroll-target="#putting-all-the-pieces-together"> <span class="header-section-number">1.12.11</span> Putting all the pieces together</a></li>
+<li><a href="#practice-rules-of-server-functions" class="nav-link" data-scroll-target="#practice-rules-of-server-functions"> <span class="header-section-number">1.12.12</span> Practice: Rules of server functions</a></li>
+<li><a href="#practice-fix-it-up" class="nav-link" data-scroll-target="#practice-fix-it-up"> <span class="header-section-number">1.12.13</span> Practice: Fix it up</a></li>
+</ul></li>
+<li><a href="#recap" class="nav-link" data-scroll-target="#recap"> <span class="header-section-number">1.13</span> Recap</a>
+<ul class="collapse">
+<li><a href="#section-4" class="nav-link" data-scroll-target="#section-4"> <span class="header-section-number">1.13.1</span> </a></li>
+<li><a href="#section-5" class="nav-link" data-scroll-target="#section-5"> <span class="header-section-number">1.13.2</span> </a></li>
+<li><a href="#section-6" class="nav-link" data-scroll-target="#section-6"> <span class="header-section-number">1.13.3</span> </a></li>
+<li><a href="#section-7" class="nav-link" data-scroll-target="#section-7"> <span class="header-section-number">1.13.4</span> </a></li>
+<li><a href="#tip-change-display" class="nav-link" data-scroll-target="#tip-change-display"> <span class="header-section-number">1.13.5</span> Tip: Change display</a></li>
+<li><a href="#tip-close-an-app" class="nav-link" data-scroll-target="#tip-close-an-app"> <span class="header-section-number">1.13.6</span> Tip: Close an app</a></li>
+<li><a href="#section-8" class="nav-link" data-scroll-target="#section-8"> <span class="header-section-number">1.13.7</span> </a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<header id="title-block-header" class="quarto-title-block default">
+
+<div class="quarto-title"><h1 class="title d-none d-lg-block display-7"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Started</span></h1></div></header>
+
+<section id="here-is-a-shiny-app" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="here-is-a-shiny-app"><span class="header-section-number">1.1</span> Here is a Shiny app</h2>
+<p>And not just any app, an app that you will be able to build by the end of this tutorial!</p>
+<div class="cell" data-layout-align="center" data-context="data" data-hash="hello_cache/html/unnamed-chunk-2_2f9f014368497507aa6e4bf948323682">
+
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<p>https://minecr.shinyapps.io/movies/?showcase=0</p>
+</div>
+<div class="cell-output-display">
+<p>1200px</p>
+</div>
+<div class="cell-output-display">
+<p>https://minecr.shinyapps.io/movies/</p>
+</div>
+</div>
+<p>We’ll go through the technical details of each component of such an app throughout the tutorial, but for now let’s take a high level view.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/shiny-app-annotated.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We have:</p>
+<ul>
+<li>a title for the app,</li>
+<li>a series of inputs:
+<ul>
+<li>some of these inputs use drop down menus for selection,</li>
+<li>some are sliders,</li>
+<li>some allow for text input, and</li>
+<li>some are action buttons</li>
+</ul></li>
+<li>and a few outputs:
+<ul>
+<li>a plot output that the user can interactively update,</li>
+<li>a text output that updates alongside it, and</li>
+<li>a data table output that also updates alongside these.</li>
+</ul></li>
+</ul>
+<p>As much as it looks like there is a lot going on in this sample app, the app doesn’t even scratch the surface of what you can build with Shiny.</p>
+<p>I hope you’re excited to take it all in!</p>
+</section>
+<section id="background" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="background"><span class="header-section-number">1.2</span> Background</h2>
+<p>Before we get started with Shiny, let’s talk background…</p>
+<p>This tutorial assumes that you are familiar with R as a programming language.</p>
+<p>Additionally, this tutorial uses packages from the <a href="https://tidyverse.org/">tidyverse</a> (e.g.&nbsp;<a href="https://dplyr.tidyverse.org/"><strong>dplyr</strong></a> for data wrangling and <a href="https://ggplot2.tidyverse.org/"><strong>ggplot2</strong></a> for data visualisation). Your Shiny apps can use any package, but if you’d like to learn more about doing data science with the tidyverse, see <a href="https://www.tidyverse.org/learn/">here</a>.</p>
+</section>
+<section id="help" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="help"><span class="header-section-number">1.3</span> Help</h2>
+<p>The tutorial is designed for beginners and many of the exercises have plenty of scaffolding to help you along the way.</p>
+<p>That being said, there are a few other resources that might help your learning.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/help.png" class="img-fluid figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol type="1">
+<li><p>The first is the <a href="https://github.com/rstudio/cheatsheets/raw/master/shiny.pdf"><strong>Shiny cheatsheet</strong></a>. This is a handy-dandy <a href="https://rstudio.com/resources/cheatsheets/">cheatsheet</a> that I recommend you keep close by when building Shiny apps.</p></li>
+<li><p>The second is the <a href="https://shiny.rstudio.com"><strong>Shiny homepage</strong></a>. It is <em>the</em> place to learn about all things Shiny and to keep up to date with it as it evolves.</p></li>
+</ol>
+</section>
+<section id="tips" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="tips"><span class="header-section-number">1.4</span> Tips</h2>
+<p>Also, let’s go over three very important tips for learning to develop Shiny apps:</p>
+<ol type="1">
+<li><p>Always <strong>run the entire script</strong> containing the R code, not just up to the point where you’re developing code. For most exercises in this tutorial you will be asked to modify or update existing Shiny code, and even though you might be altering a small portion of the code, you still need to run the entire app code to create the app.</p></li>
+<li><p>Sometimes the best way to troubleshoot is to <strong>run the app and review the error</strong>. Not only can the error message be informative, but googling the error message might quickly land you on a solution.</p></li>
+<li><p><strong>Watch out for commas!</strong> This will mean more as you start to learn Shiny, but just keep in mind, a Shiny error can often be caused by a missing comma. Thankfully, the RStudio IDE will alert you to most of these missing comma or similar syntax errors, like the one shown below.</p></li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/missing-comma-ide.png" class="img-fluid figure-img" style="width:30.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="anatomy-of-a-shiny-app" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="anatomy-of-a-shiny-app"><span class="header-section-number">1.5</span> Anatomy of a Shiny app</h2>
+<p>Alrighty, let’s take a look at the anatomy of a Shiny app:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/anatomy.png" class="img-fluid figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>We start by loading any necessary packages, one of which is necessarily shiny.</p></li>
+<li><p>Then we lay out the user interface with a ui object that controls the appearance of our app.</p></li>
+<li><p>And we define the server function that contains instructions needed to build the app.</p></li>
+<li><p>We end each Shiny app script with a call to the shinyApp() function that puts these two components together to create the Shiny app object.</p></li>
+</ul>
+</section>
+<section id="data" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="data"><span class="header-section-number">1.6</span> Data</h2>
+<p>In this tutorial we will build a simple movie browser app.</p>
+<p>We will use data from the movies dataset, which combines data from two websites: the Internet Movie Database, commonly known as IMDB, and Rotten Tomatoes. The observations are a random sample of 651 movies released in the US between 1970 and 2014.</p>
+<p>So where does the loading of the data happen in an app?</p>
+</section>
+<section id="revisit" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="revisit"><span class="header-section-number">1.7</span> Revisit</h2>
+<p>Let’s revisit the app layout from a couple sections back.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/revisit.png" class="img-fluid figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We load the data before <code>ui</code> and <code>server</code> definitions so that it can be used in both.</p>
+<p>Alright, time for some practice!</p>
+</section>
+<section id="practice-whats-in-an-app" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="practice-whats-in-an-app"><span class="header-section-number">1.8</span> Practice: What’s in an app?</h2>
+<p>Which of these is not generally a part of the Shiny app architecture?” - A function that installs an R package - User interface - Server function - A function that creates Shiny app objects</p>
+<p>Answer: A function that installs an R package. You don’t want to reinstall the package every time you run your app, so you should do this once in your console instead of within your Shiny app</p>
+</section>
+<section id="practice-first-peek-under-the-hood" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="practice-first-peek-under-the-hood"><span class="header-section-number">1.9</span> Practice: First peek under the hood</h2>
+<p>Below you can see the complete code to reproduce the app we introduced in the previous section. Now you get to interact with the app yourself, and make small adjustments to it.</p>
+<p>I’ve created an RStudio Cloud Project for you to test drive this code. Click the button below to be taken to your RStudio Workspace, select <strong>1.1 First peek under the hood</strong> from the Project list, and follow the exercise instructions below to get started!</p>
+<div class="proj">
+<p><em>Navigate to the project called <strong>1-1 First peek under the hood</strong> after clicking the button below</em></p>
+<p><a href="https://rstudio.cloud/spaces/81721/join?access_code=I4VJaNsKfTqR3Td9hLP7E1nz8%2FtMg6Xbw9Bgqumv" class="btn test-drive"><i class="fa fa-cloud"></i> Go to RStudio Cloud Workspace</a></p>
+</div>
+</section>
+<section id="your-turn" class="level2" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="your-turn"><span class="header-section-number">1.10</span> Your turn</h2>
+<ul>
+<li>Once your RStudio Cloud Project is open to the script <code>app.R</code>, click <img src="images/run-app.png" alt="Run App" height="25px"> to run the code and generate the app.</li>
+<li>Play with the input selectors for the Y-axis and the X-axis and observe how the output changes.</li>
+<li>Close the app by closing the pop-up window or clicking on the red Stop button in the viewer.</li>
+<li>Locate the relevant lines of code in <code>app.R</code> that build the selector widget for the Y-axis. This is in a <code>selectInput()</code> function starting on Line 20, underneath the comment <code># Select variable for y-axis</code>. Note that this function takes four arguments: <code>inputId</code>, <code>label</code>, <code>choices</code>, and <code>selected</code>. We’ll discuss what each of these mean in detail shortly. For now, change the <code>selected</code> argument to <code>imdb_rating</code>, save your changes, and run the app again by clicking on <img src="images/run-app.png" alt="Run App" height="25px">. What changed?
+<ul>
+<li>If you get an error when you try to rerun the app, you can either try to debug the issue by tracing back your steps or delete everything in <code>app.R</code> and copy and paste the code below into <code>app.R</code>. This will get you back to your starting point. You can use this “start over” approach for any of the exercises in this tutorial.</li>
+</ul></li>
+<li>Now locate the relevant lines of code in <code>app.R</code> that build the selector widget for the X-axis. This is also in a <code>selectInput()</code> function, starting on Line 27, underneath the comment <code># Select variable for x-axis</code>. Change the <code>selected</code> argument to <code>imdb_rating</code> as well, save your changes, and run the app again. What changed?</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages ----------------------------------------------------------------</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data --------------------------------------------------------------------</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"movies.RData"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Define UI --------------------------------------------------------------------</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Inputs: Select variables to plot</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Select variable for y-axis</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">inputId =</span> <span class="st">"y"</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">label =</span> <span class="st">"Y-axis:"</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"imdb_rating"</span>, <span class="st">"imdb_num_votes"</span>, <span class="st">"critics_score"</span>, <span class="st">"audience_score"</span>, <span class="st">"runtime"</span>),</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">selected =</span> <span class="st">"audience_score"</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Select variable for x-axis</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">inputId =</span> <span class="st">"x"</span>,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">label =</span> <span class="st">"X-axis:"</span>,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"imdb_rating"</span>, <span class="st">"imdb_num_votes"</span>, <span class="st">"critics_score"</span>, <span class="st">"audience_score"</span>, <span class="st">"runtime"</span>),</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">selected =</span> <span class="st">"critics_score"</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Output: Show scatterplot</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">"scatterplot"</span>)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Define server ----------------------------------------------------------------</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>scatterplot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="at">data =</span> movies, <span class="fu">aes_string</span>(<span class="at">x =</span> input<span class="sc">$</span>x, <span class="at">y =</span> input<span class="sc">$</span>y)) <span class="sc">+</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_point</span>()</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Shiny app object ----------------------------------------------------</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="user-interface-ui" class="level2" data-number="1.11">
+<h2 data-number="1.11" class="anchored" data-anchor-id="user-interface-ui"><span class="header-section-number">1.11</span> User interface (UI)</h2>
+<section id="section" class="level3" data-number="1.11.1">
+<h3 data-number="1.11.1" class="anchored" data-anchor-id="section"><span class="header-section-number">1.11.1</span> </h3>
+<p>In this section we’ll build the user interface of a simple app.</p>
+<p>However, before we get into the weeds of building a user interface, let’s revisit the anatomy of a Shiny app.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/app-selectinput-scatterplot.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>The user interface, that we’ll refer to as the “UI” going forward, defines and lays out the inputs of your app where users can make their selections. It also lays out the outputs.</p></li>
+<li><p>The server function, on the other hand, calculates outputs and performs any other calculations needed for the outputs.</p></li>
+</ul>
+</section>
+<section id="example" class="level3" data-number="1.11.2">
+<h3 data-number="1.11.2" class="anchored" data-anchor-id="example"><span class="header-section-number">1.11.2</span> Example</h3>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ui-to-scatterplot.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>For example, if your app features a plot the code for building that plot lives in the server function. But the setup for the user defined inputs for the plot, as well as information on where physically on the app the plot should appear, are defined in the UI.</p>
+</section>
+<section id="section-1" class="level3" data-number="1.11.3">
+<h3 data-number="1.11.3" class="anchored" data-anchor-id="section-1"><span class="header-section-number">1.11.3</span> </h3>
+<p>Here is the app we’ll work with in this section and the code that builds the UI of that app.</p>
+<p>Since this is too much code to parse, we’ll explore individual components of the UI one by one.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/app-selectinput-scatterplot.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ui-selectinput-scatterplot.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="fluidpage" class="level3" data-number="1.11.4">
+<h3 data-number="1.11.4" class="anchored" data-anchor-id="fluidpage"><span class="header-section-number">1.11.4</span> <code>fluidPage()</code></h3>
+<p>At the outermost layer of our UI definition we begin with the <code>fluidPage()</code> function.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/fluidPage.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The <code>fluidPage()</code> function creates a fluid page layout consisting of rows and columns. Rows make sure that elements in them appear on the same line. Columns within these rows define how much horizontal space each element should occupy.</p>
+<p>Fluid pages scale their components in realtime to fill all available browser width, which means you, the app developer, don’t need to worry about defining relative widths for individual app components.</p>
+<p>As always, for more information on arguments to this function, you can view the R function help by typing <code>?fluidPage</code> in your R console or visiting the function reference page on the package website <a href="https://shiny.rstudio.com/reference/shiny/latest/">here</a>.</p>
+</section>
+<section id="layout" class="level3" data-number="1.11.5">
+<h3 data-number="1.11.5" class="anchored" data-anchor-id="layout"><span class="header-section-number">1.11.5</span> Layout</h3>
+<p>Next, we define the layout of our app with <code>sidebarLayout()</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/layout.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Shiny includes a number of options for laying out the components of an application. The default layout, the one we’re using in our example app, is a layout with a sidebar, that you can define with the <code>sidebarLayout()</code> function.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/layout-app.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This is a simple layout with a narrow sidebar for inputs and a wider main area for output.</p>
+<p>Under the hood, Shiny implements layout features available in Bootstrap 2, which is a popular HTML/CSS framework. However the nice thing about working in Shiny is that no prior experience with Bootstrap is necessary.</p>
+<p>To learn more about various layouts, I recommend reviewing the <a href="https://shiny.rstudio.com/articles/layout-guide.html">Application Layout Guide article</a> at <a href="shiny.rstudio.com">shiny.rstudio.com</a>.</p>
+</section>
+<section id="input-controls" class="level3" data-number="1.11.6">
+<h3 data-number="1.11.6" class="anchored" data-anchor-id="input-controls"><span class="header-section-number">1.11.6</span> Input controls</h3>
+<p>Next we define our sidebar panel containing input controls.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/input-controls.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section-2" class="level3" data-number="1.11.7">
+<h3 data-number="1.11.7" class="anchored" data-anchor-id="section-2"><span class="header-section-number">1.11.7</span> </h3>
+<p>This panel contains two dropdown menus created with the <code>selectInput()</code> function.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/input-dropdowns.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section-3" class="level3" data-number="1.11.8">
+<h3 data-number="1.11.8" class="anchored" data-anchor-id="section-3"><span class="header-section-number">1.11.8</span> </h3>
+<p>Let’s take a look at one of the <code>selectInput</code> widgets a little more closely.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/input-closeup.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol type="1">
+<li><p>The first argument is the <code>inputId</code>, which is the input value that the app will internally use to access the value selected by the user.</p></li>
+<li><p>The second argument is the <code>label</code>, which is the display label that the user sees.</p></li>
+<li><p>The third argument is the list of <code>choices</code> the user will choose from. In this app, these are variable names from the movies dataset.</p></li>
+<li><p>And lastly we specify a default selection from that list with <code>selected</code>.</p></li>
+</ol>
+</section>
+<section id="main-panel" class="level3" data-number="1.11.9">
+<h3 data-number="1.11.9" class="anchored" data-anchor-id="main-panel"><span class="header-section-number">1.11.9</span> Main Panel</h3>
+<p>The final component of our UI is <code>mainPanel()</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/main-panel.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Currently the main panel contains only one component, a plot output. We’ll talk about how this plot is built later in the tutorial.</p>
+<p>Next, let’s practice building an app UI!</p>
+</section>
+<section id="practice-extend-the-ui" class="level3" data-number="1.11.10">
+<h3 data-number="1.11.10" class="anchored" data-anchor-id="practice-extend-the-ui"><span class="header-section-number">1.11.10</span> Practice: Extend the UI</h3>
+<p>We’ll start with a simplified version of the app you saw in the previous exercise. In this app a <code>selectInput()</code> widget is used to allow the user to select which variables should be plotted on the <code>x</code> and <code>y</code> axes of the scatterplot.</p>
+<p>The <code>selectInput()</code> function has the following arguments:</p>
+<ul>
+<li>an <code>inputId</code> that is used to refer to the input parameter when building the scatterplot,</li>
+<li>a list of <code>choices</code> to pick from (which must match variable names in the data frame),</li>
+<li>and a <code>selected</code> choice for when the app first launches.</li>
+</ul>
+<section id="your-turn-1" class="level4" data-number="1.11.10.1">
+<h4 data-number="1.11.10.1" class="anchored" data-anchor-id="your-turn-1"><span class="header-section-number">1.11.10.1</span> Your turn</h4>
+<p>Modify the Shiny app code in <code>app.R</code> / shown below:</p>
+<ul>
+<li>In the <code>ui</code>:
+<ul>
+<li>Add a new <code>selectInput</code> widget to color the points by a choice of the following variables: <code>"title_type"</code>, <code>"genre"</code>, <code>"mpaa_rating"</code>, <code>"critics_rating"</code>, <code>"audience_rating"</code>.</li>
+<li>Make the default selection <code>"mpaa_rating"</code>.</li>
+<li>Use <code>"z"</code> as the <code>inputId</code>.</li>
+<li><code>label</code> can be whatever you like.</li>
+</ul></li>
+<li>In the <code>server</code>:
+<ul>
+<li>Set the color argument in <code>ggplot()</code> aesthetic mappings to <code>input$z</code>.</li>
+</ul></li>
+</ul>
+<div class="proj">
+<p><em>Complete this exercise by opening up the RStudio Project titled <strong>1-2a Extend the UI</strong> within your RStudio Cloud Workspace</em></p>
+<p><a href="https://rstudio.cloud/spaces/81721/join?access_code=I4VJaNsKfTqR3Td9hLP7E1nz8%2FtMg6Xbw9Bgqumv" class="btn test-drive"><i class="fa fa-cloud"></i> Go to RStudio Cloud Workspace</a></p>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb2"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages ----------------------------------------------------------------</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data --------------------------------------------------------------------</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"movies.RData"</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Define UI --------------------------------------------------------------------</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Inputs: Select variables to plot</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Select variable for y-axis</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"y"</span>, </span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label =</span> <span class="st">"Y-axis:"</span>,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>                  <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"imdb_rating"</span>, <span class="st">"imdb_num_votes"</span>, <span class="st">"critics_score"</span>, <span class="st">"audience_score"</span>, <span class="st">"runtime"</span>), </span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>                  <span class="at">selected =</span> <span class="st">"audience_score"</span>),</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Select variable for x-axis</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"x"</span>, </span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label =</span> <span class="st">"X-axis:"</span>,</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>                  <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"imdb_rating"</span>, <span class="st">"imdb_num_votes"</span>, <span class="st">"critics_score"</span>, <span class="st">"audience_score"</span>, <span class="st">"runtime"</span>), </span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>                  <span class="at">selected =</span> <span class="st">"critics_score"</span>),</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Select variable for color</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"___"</span>, </span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label =</span> <span class="st">"____"</span>,</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>                  <span class="at">choices =</span> <span class="fu">c</span>(___),</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>                  <span class="at">selected =</span> <span class="st">"___"</span>)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Output: Show scatterplot</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">"scatterplot"</span>)</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Define server ----------------------------------------------------------------</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>scatterplot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="at">data =</span> movies, <span class="fu">aes_string</span>(<span class="at">x =</span> input<span class="sc">$</span>x, <span class="at">y =</span> input<span class="sc">$</span>y,</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">color =</span> ___)) <span class="sc">+</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_point</span>()</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Shiny app object ----------------------------------------------------</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<details>
+<summary>
+<p>Show solution</p>
+</summary>
+<p>See the following code chunk for the solution to the exercise above.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb3"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages ----------------------------------------------------------------</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data --------------------------------------------------------------------</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"movies.RData"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Define UI --------------------------------------------------------------------</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Inputs: Select variables to plot</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Select variable for y-axis</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"y"</span>, </span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label =</span> <span class="st">"Y-axis:"</span>,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>                  <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"imdb_rating"</span>, <span class="st">"imdb_num_votes"</span>, <span class="st">"critics_score"</span>, <span class="st">"audience_score"</span>, <span class="st">"runtime"</span>), </span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>                  <span class="at">selected =</span> <span class="st">"audience_score"</span>),</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Select variable for x-axis</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"x"</span>, </span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label =</span> <span class="st">"X-axis:"</span>,</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>                  <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"imdb_rating"</span>, <span class="st">"imdb_num_votes"</span>, <span class="st">"critics_score"</span>, <span class="st">"audience_score"</span>, <span class="st">"runtime"</span>), </span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>                  <span class="at">selected =</span> <span class="st">"critics_score"</span>),</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Select variable for color</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"z"</span>, </span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label =</span> <span class="st">"Color by:"</span>,</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>                  <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"title_type"</span>, <span class="st">"genre"</span>, <span class="st">"mpaa_rating"</span>, <span class="st">"critics_rating"</span>, <span class="st">"audience_rating"</span>),</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>                  <span class="at">selected =</span> <span class="st">"mpaa_rating"</span>)</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Output: Show scatterplot</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">"scatterplot"</span>)</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Define server ----------------------------------------------------------------</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>scatterplot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="at">data =</span> movies, <span class="fu">aes_string</span>(<span class="at">x =</span> input<span class="sc">$</span>x, <span class="at">y =</span> input<span class="sc">$</span>y,</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">color =</span> input<span class="sc">$</span>z)) <span class="sc">+</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_point</span>()</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Shiny app object ----------------------------------------------------</span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</details>
+</section>
+</section>
+<section id="practice-extend-the-ui-further" class="level3" data-number="1.11.11">
+<h3 data-number="1.11.11" class="anchored" data-anchor-id="practice-extend-the-ui-further"><span class="header-section-number">1.11.11</span> Practice: Extend the UI further</h3>
+<p>The potential variables the user can select for the <code>x</code> and <code>y</code> axes and <code>color</code> currently appear in the UI of the app the same way that they are spelled in the data frame header. However we might want to label them in a way that is more human readable. We can achieve this using named vectors for the <code>choices</code> argument, in the format of <code>"Human readable label" = "variable_name"</code>.</p>
+<section id="your-turn-2" class="level4" data-number="1.11.11.1">
+<h4 data-number="1.11.11.1" class="anchored" data-anchor-id="your-turn-2"><span class="header-section-number">1.11.11.1</span> Your turn</h4>
+<ul>
+<li>Fill in the blanks in the code below with human readable labels for <code>x</code> and <code>y</code> inputs.</li>
+<li>Re-create the <code>selectInput</code> widget for color, <code>z</code>, with options <code>"title_type"</code>, <code>"genre"</code>, <code>"mpaa_rating"</code>, <code>"critics_rating"</code>, and <code>"audience_rating"</code>, default selection <code>"mpaa_rating"</code> just like in the previous exercise, but this time use human readable labels as well.</li>
+</ul>
+<div class="proj">
+<p><em>Complete this exercise by opening up the RStudio Project titled <strong>1-2b Extend the UI further</strong> within your RStudio Cloud Workspace</em></p>
+<p><a href="https://rstudio.cloud/spaces/81721/join?access_code=I4VJaNsKfTqR3Td9hLP7E1nz8%2FtMg6Xbw9Bgqumv" class="btn test-drive"><i class="fa fa-cloud"></i> Go to RStudio Cloud Workspace</a></p>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb4"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages ----------------------------------------------------------------</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data --------------------------------------------------------------------</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"movies.RData"</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Define UI --------------------------------------------------------------------</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Inputs: Select variables to plot</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Select variable for y-axis</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"y"</span>, </span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label =</span> <span class="st">"Y-axis:"</span>,</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>                  <span class="at">choices =</span> <span class="fu">c</span>(<span class="at">___ =</span> <span class="st">"imdb_rating"</span>, </span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>                              <span class="at">___ =</span> <span class="st">"imdb_num_votes"</span>, </span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>                              <span class="at">___ =</span> <span class="st">"critics_score"</span>, </span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>                              <span class="at">___ =</span> <span class="st">"audience_score"</span>, </span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>                              <span class="at">___ =</span> <span class="st">"runtime"</span>), </span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>                  <span class="at">selected =</span> <span class="st">"audience_score"</span>),</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Select variable for x-axis</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"x"</span>, </span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label =</span> <span class="st">"X-axis:"</span>,</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>                  <span class="at">choices =</span> <span class="fu">c</span>(<span class="at">___ =</span> <span class="st">"imdb_rating"</span>, </span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>                              <span class="at">___ =</span> <span class="st">"imdb_num_votes"</span>, </span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>                              <span class="at">___ =</span> <span class="st">"critics_score"</span>, </span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>                              <span class="at">___ =</span> <span class="st">"audience_score"</span>, </span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>                              <span class="at">___ =</span> <span class="st">"runtime"</span>), </span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>                  <span class="at">selected =</span> <span class="st">"critics_score"</span>),</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Select variable for color</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"z"</span>, </span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label =</span> <span class="st">"Color:"</span>,</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>                  <span class="at">choices =</span> ___, </span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>                  <span class="at">selected =</span> ___)</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Output: Show scatterplot</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">"scatterplot"</span>)</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Define server ----------------------------------------------------------------</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>scatterplot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="at">data =</span> movies, <span class="fu">aes_string</span>(<span class="at">x =</span> input<span class="sc">$</span>x, <span class="at">y =</span> input<span class="sc">$</span>y,</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">color =</span> input<span class="sc">$</span>z)) <span class="sc">+</span></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_point</span>()</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Shiny app object ----------------------------------------------------</span></span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<details>
+<summary>
+<p>Show solution</p>
+</summary>
+<p>See the following code chunk for the solution to the exercise above.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb5"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages ----------------------------------------------------------------</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data --------------------------------------------------------------------</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"movies.RData"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Define UI --------------------------------------------------------------------</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Inputs: Select variables to plot</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Select variable for y-axis</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"y"</span>, </span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label =</span> <span class="st">"Y-axis:"</span>,</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>                  <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">"IMDB rating"</span>          <span class="ot">=</span> <span class="st">"imdb_rating"</span>, </span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"IMDB number of votes"</span> <span class="ot">=</span> <span class="st">"imdb_num_votes"</span>, </span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"Critics score"</span>        <span class="ot">=</span> <span class="st">"critics_score"</span>, </span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"Audience score"</span>       <span class="ot">=</span> <span class="st">"audience_score"</span>, </span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"Runtime"</span>              <span class="ot">=</span> <span class="st">"runtime"</span>), </span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>                  <span class="at">selected =</span> <span class="st">"audience_score"</span>),</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Select variable for x-axis</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"x"</span>, </span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label =</span> <span class="st">"X-axis:"</span>,</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>                  <span class="at">choices =</span> <span class="fu">c</span>(</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"IMDB rating"</span>          <span class="ot">=</span> <span class="st">"imdb_rating"</span>, </span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"IMDB number of votes"</span> <span class="ot">=</span> <span class="st">"imdb_num_votes"</span>, </span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Critics score"</span>        <span class="ot">=</span> <span class="st">"critics_score"</span>, </span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Audience score"</span>       <span class="ot">=</span> <span class="st">"audience_score"</span>, </span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Runtime"</span>              <span class="ot">=</span> <span class="st">"runtime"</span>), </span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>                  <span class="at">selected =</span> <span class="st">"critics_score"</span>),</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Select variable for color</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Select variable for color</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">"z"</span>, </span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label =</span> <span class="st">"Color by:"</span>,</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>                  <span class="at">choices =</span> <span class="fu">c</span>(</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Title type"</span> <span class="ot">=</span> <span class="st">"title_type"</span>, </span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Genre"</span> <span class="ot">=</span> <span class="st">"genre"</span>, </span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"MPAA rating"</span> <span class="ot">=</span> <span class="st">"mpaa_rating"</span>, </span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Critics rating"</span> <span class="ot">=</span> <span class="st">"critics_rating"</span>, </span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Audience rating"</span> <span class="ot">=</span> <span class="st">"audience_rating"</span>),</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>                  <span class="at">selected =</span> <span class="st">"mpaa_rating"</span>)</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Output: Show scatterplot</span></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">"scatterplot"</span>)</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Define server ----------------------------------------------------------------</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>scatterplot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="at">data =</span> movies, <span class="fu">aes_string</span>(<span class="at">x =</span> input<span class="sc">$</span>x, <span class="at">y =</span> input<span class="sc">$</span>y,</span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">color =</span> input<span class="sc">$</span>z)) <span class="sc">+</span></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_point</span>()</span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Shiny app object ----------------------------------------------------</span></span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</details>
+</section>
+</section>
+</section>
+<section id="server-function" class="level2" data-number="1.12">
+<h2 data-number="1.12" class="anchored" data-anchor-id="server-function"><span class="header-section-number">1.12</span> Server function</h2>
+<p>Now that you’ve had some practice with the UI, it’s time to move on to the server function.</p>
+<p>Again, before we get into the details, let’s remind ourselves of the anatomy of a Shiny app. The basic task of the server function is to define the relationship between inputs and outputs.</p>
+<section id="here-again-is-the-app-that-we-are-working-with-in-this-module" class="level3" data-number="1.12.1">
+<h3 data-number="1.12.1" class="anchored" data-anchor-id="here-again-is-the-app-that-we-are-working-with-in-this-module"><span class="header-section-number">1.12.1</span> Here again is the app that we are working with in this module</h3>
+<p>Earlier we saw how to build the UI of this app, and we also noted that each input was tagged with an <code>inputId</code> that can be used to refer to them in the server.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/app-selectinput-scatterplot.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="this-is-the-server-function-code-for-this-app" class="level3" data-number="1.12.2">
+<h3 data-number="1.12.2" class="anchored" data-anchor-id="this-is-the-server-function-code-for-this-app"><span class="header-section-number">1.12.2</span> This is the server function code for this app</h3>
+<p>Once again there is a lot going on here to parse at once, so in the following sections we take a closer look at the function.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/server.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="at-the-outermost-layer" class="level3" data-number="1.12.3">
+<h3 data-number="1.12.3" class="anchored" data-anchor-id="at-the-outermost-layer"><span class="header-section-number">1.12.3</span> At the outermost layer</h3>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/server-outermost.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We define our server function which takes two arguments: an <code>input</code> and an <code>output</code>. Both of these are named lists.</p>
+<p>The server function accesses inputs selected by the user to perform computations and specifies how outputs laid out in the UI should be updated.</p>
+<p>The server function can take on one more argument, <code>session</code>, which is an environment that can be used to access information and functionality relating to the session. However this concept is beyond the scope of this tutorial, so for now we’ll stick to server functions that only have input and output arguments.</p>
+</section>
+<section id="output" class="level3" data-number="1.12.4">
+<h3 data-number="1.12.4" class="anchored" data-anchor-id="output"><span class="header-section-number">1.12.4</span> <code>output</code></h3>
+<p>Our simple app had only one output – a plot. So our server function contains the logic necessary to build this plot.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/output.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The <code>renderPlot()</code> function specifies how the plot output should be updated. Let’s take a look at what is happening in the <code>renderPlot()</code> function first.</p>
+</section>
+<section id="renderplot" class="level3" data-number="1.12.5">
+<h3 data-number="1.12.5" class="anchored" data-anchor-id="renderplot"><span class="header-section-number">1.12.5</span> <code>renderPlot()</code></h3>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/renderplot.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This is good ol’ ggplot2 code! So even if you’re new to shiny, if you’ve previously used ggplot2 for plotting in R, this syntax should look familiar to you.</p>
+<p>One aspect of the syntax that might be new, however, is how the x and y variables are defined. They come from the input list that is built in the UI.</p>
+</section>
+<section id="inputs" class="level3" data-number="1.12.6">
+<h3 data-number="1.12.6" class="anchored" data-anchor-id="inputs"><span class="header-section-number">1.12.6</span> Inputs</h3>
+<p>Here is the relevant UI and server code.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/inputs-x-y.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Input x and y come from the <code>selectInput()</code> widgets, and map to the <code>x</code> and <code>y</code> arguments of the plot aesthetics.</p>
+</section>
+<section id="rules-of-server-functions" class="level3" data-number="1.12.7">
+<h3 data-number="1.12.7" class="anchored" data-anchor-id="rules-of-server-functions"><span class="header-section-number">1.12.7</span> Rules of server functions</h3>
+<p>There are three rules of building server functions:</p>
+<ol type="1">
+<li><p>Always save objects to display to the named output list, i.e.&nbsp;something of the form <code>output$xx</code>, where <code>xx</code> is the plot you want to display.</p></li>
+<li><p>Always build objects to display with one of the <code>render*()</code> functions, like we built our plot with <code>renderPlot()</code>.</p></li>
+<li><p>Use input values from the named input list, with <code>input$xx</code>.</p></li>
+</ol>
+</section>
+<section id="output-types" class="level3" data-number="1.12.8">
+<h3 data-number="1.12.8" class="anchored" data-anchor-id="output-types"><span class="header-section-number">1.12.8</span> Output types</h3>
+<p>Just like various inputs, Shiny also provides a wide selection of output types each of which works with a render function.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/cheatsheet-outputs.png" class="img-fluid figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>For example, in our app we used the <code>renderPlot()</code> function to build our reactive plot (we’ll get to what I mean by reactive in a second) and laid out the plot with the <code>plotOutput()</code> function.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/render-output-pairs.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Shiny knows to match these two together as they use the same <code>outputID</code>, scatterplot.</p>
+<p>In the following exercises you’ll get a chance to work with other render/output function pairs to add more elements to your app.</p>
+</section>
+<section id="practice-matching-inputs-and-outputs" class="level3" data-number="1.12.9">
+<h3 data-number="1.12.9" class="anchored" data-anchor-id="practice-matching-inputs-and-outputs"><span class="header-section-number">1.12.9</span> Practice: Matching inputs and outputs</h3>
+<p>Here is a simple Shiny app. Try entering some text and observe how the text is displayed back to you after a short pause.</p>
+<hr>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="container-fluid">
+<div class="form-group shiny-input-container">
+<label class="control-label" id="custom_text-label" for="custom_text">Input some text here:</label>
+<input id="custom_text" type="text" class="form-control" value="">
+</div>
+<strong>Text is shown below:</strong>
+<div id="user_text" class="shiny-text-output"></div>
+</div>
+</div>
+</div>
+<p>#<code>{r, context = "server", eval = TRUE} # output$user_text &lt;- renderText({ input$custom_text }) #</code></p>
+<hr>
+<p>The code for this app is given below, with a few pieces missing (indicated with <code>___</code>). Each of the blanks are numbered, e.g.&nbsp;(<code>[1]</code>, <code>[2]</code>, etc.)</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb6"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">textInput</span>(</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">inputId =</span> <span class="st">"custom_text"</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">"_[1]_"</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">strong</span>(<span class="st">"Text is shown below:"</span>),</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  _[<span class="dv">2</span>]<span class="fu">_</span>(<span class="at">outputId =</span> <span class="st">"_[3]_"</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session){</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>user_text <span class="ot">&lt;-</span> <span class="fu">renderText</span>({ input<span class="sc">$</span>_[<span class="dv">4</span>]_ })</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>#<code>{r mc-2} #question("Which of the following is false?", #  answer('`[1]` should be `"Input some text here:"`', #         message = "Take a look at the app, what text is #shown to the user above the text input area?"), #  answer('`[2]` should be `textOutput`',  #         message = "Check out the Shiny cheatsheet for pairs #of input and output functions"), #  answer('`[3]` should be `"custom_text"`', correct = TRUE), #  answer('`[4]` should be `"custom_text"`', #         message = "What is the ID of the input that should #be rendered?"), #  allow_retry = TRUE #) #</code></p>
+</section>
+<section id="reactivity" class="level3" data-number="1.12.10">
+<h3 data-number="1.12.10" class="anchored" data-anchor-id="reactivity"><span class="header-section-number">1.12.10</span> Reactivity</h3>
+<p>Let’s also briefly discuss reactivity.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/reactivity.png" class="img-fluid figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>It’s easy to build interactive applications with Shiny, but to get the most out of it, you’ll need to understand the reactive programming scheme used by Shiny.</p>
+<p>In a nutshell Shiny automatically updates outputs, such as plots, when inputs that go into them change.</p>
+</section>
+<section id="putting-all-the-pieces-together" class="level3" data-number="1.12.11">
+<h3 data-number="1.12.11" class="anchored" data-anchor-id="putting-all-the-pieces-together"><span class="header-section-number">1.12.11</span> Putting all the pieces together</h3>
+<p>Before we wrap up this section, I should also mention the last component of each Shiny app, which is a call to the aptly named <code>shinyApp()</code> function, which puts the UI and the server pieces together to create a Shiny app object.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/shinyAppfunction.png" class="img-fluid figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Time to put this all into practice!</p>
+</section>
+<section id="practice-rules-of-server-functions" class="level3" data-number="1.12.12">
+<h3 data-number="1.12.12" class="anchored" data-anchor-id="practice-rules-of-server-functions"><span class="header-section-number">1.12.12</span> Practice: Rules of server functions</h3>
+<p>Which of the following is not true about server functions?</p>
+<p>#<code>{r mc-3} #question("Which of the following is not true about server functions?", #  answer("Server functions should include a call to #`runApp()`", #    correct = TRUE, #    message = "The `runApp()` function can be used in the Console to run a Shiny application, as an alternative to the Run App button in the RStudio IDE." #  ), #  answer("Objects to be displayed should be saved to #`output$`"), #  answer("Reactive objects should be built with `render*()` functions"), #  answer("Input values should be referred to with `input$`"), #  allow_retry = TRUE, #  random_answer_order = TRUE #) #</code></p>
+</section>
+<section id="practice-fix-it-up" class="level3" data-number="1.12.13">
+<h3 data-number="1.12.13" class="anchored" data-anchor-id="practice-fix-it-up"><span class="header-section-number">1.12.13</span> Practice: Fix it up</h3>
+<p>Below is the code for the Shiny app we built earlier, however currently the code is broken. Specifically there are errors in the definition of the server function as well as in the <code>mainPanel</code> of the UI.</p>
+<section id="your-turn-3" class="level4" data-number="1.12.13.1">
+<h4 data-number="1.12.13.1" class="anchored" data-anchor-id="your-turn-3"><span class="header-section-number">1.12.13.1</span> Your turn</h4>
+<ul>
+<li>Review the app and identify errors in the code.
+<ul>
+<li>Hint: Refer back to the rules of server functions.</li>
+</ul></li>
+<li>Do the render functions match the output functions? If not, make the appropriate change and try running the app. Are there any remaining errors?</li>
+<li>Are the inputs referred to using the correct syntax? If not, make the appropriate change and try running the app. Are there any remaining errors?</li>
+<li>Are the outputs referred to using the correct names? If not, make the appropriate change and try running the app. Are there any remaining errors?</li>
+</ul>
+<div class="proj">
+<p><em>Navigate to the project called <strong>1-3 Fix it up</strong> after clicking the button below</em></p>
+<p><a href="https://rstudio.cloud/spaces/81721/join?access_code=I4VJaNsKfTqR3Td9hLP7E1nz8%2FtMg6Xbw9Bgqumv" class="btn test-drive"><i class="fa fa-cloud"></i> Go to RStudio Cloud Workspace</a></p>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb7"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages ----------------------------------------------------------------</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data --------------------------------------------------------------------</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"movies.RData"</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Define UI --------------------------------------------------------------------</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Inputs: Select variables to plot</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Select variable for y-axis</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">inputId =</span> <span class="st">"y"</span>,</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">label =</span> <span class="st">"Y-axis:"</span>,</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">choices =</span> <span class="fu">c</span>(</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>          <span class="st">"IMDB rating"</span> <span class="ot">=</span> <span class="st">"imdb_rating"</span>,</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>          <span class="st">"IMDB number of votes"</span> <span class="ot">=</span> <span class="st">"imdb_num_votes"</span>,</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>          <span class="st">"Critics score"</span> <span class="ot">=</span> <span class="st">"critics_score"</span>,</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>          <span class="st">"Audience score"</span> <span class="ot">=</span> <span class="st">"audience_score"</span>,</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>          <span class="st">"Runtime"</span> <span class="ot">=</span> <span class="st">"runtime"</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">selected =</span> <span class="st">"audience_score"</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Select variable for x-axis</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>        <span class="at">inputId =</span> <span class="st">"x"</span>,</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">label =</span> <span class="st">"X-axis:"</span>,</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">choices =</span> <span class="fu">c</span>(</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>          <span class="st">"IMDB rating"</span> <span class="ot">=</span> <span class="st">"imdb_rating"</span>,</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>          <span class="st">"IMDB number of votes"</span> <span class="ot">=</span> <span class="st">"imdb_num_votes"</span>,</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>          <span class="st">"Critics score"</span> <span class="ot">=</span> <span class="st">"critics_score"</span>,</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>          <span class="st">"Audience score"</span> <span class="ot">=</span> <span class="st">"audience_score"</span>,</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>          <span class="st">"Runtime"</span> <span class="ot">=</span> <span class="st">"runtime"</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>        <span class="at">selected =</span> <span class="st">"critics_score"</span></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Select variable for color</span></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>        <span class="at">inputId =</span> <span class="st">"z"</span>,</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>        <span class="at">label =</span> <span class="st">"Color by:"</span>,</span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>        <span class="at">choices =</span> <span class="fu">c</span>(</span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>          <span class="st">"Title type"</span> <span class="ot">=</span> <span class="st">"title_type"</span>,</span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>          <span class="st">"Genre"</span> <span class="ot">=</span> <span class="st">"genre"</span>,</span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>          <span class="st">"MPAA rating"</span> <span class="ot">=</span> <span class="st">"mpaa_rating"</span>,</span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>          <span class="st">"Critics rating"</span> <span class="ot">=</span> <span class="st">"critics_rating"</span>,</span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>          <span class="st">"Audience rating"</span> <span class="ot">=</span> <span class="st">"audience_rating"</span></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>        <span class="at">selected =</span> <span class="st">"mpaa_rating"</span></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Output: Show scatterplot</span></span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">"scatterPlot"</span>)</span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a><span class="co"># Define server ----------------------------------------------------------------</span></span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>scatterplot <span class="ot">&lt;-</span> <span class="fu">renderTable</span>({</span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="at">data =</span> movies, <span class="fu">aes_string</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> z)) <span class="sc">+</span></span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_point</span>()</span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Shiny app object ----------------------------------------------------</span></span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="recap" class="level2" data-number="1.13">
+<h2 data-number="1.13" class="anchored" data-anchor-id="recap"><span class="header-section-number">1.13</span> Recap</h2>
+<p>Let’s quickly recap what we have learned in this chapter.</p>
+<section id="section-4" class="level3" data-number="1.13.1">
+<h3 data-number="1.13.1" class="anchored" data-anchor-id="section-4"><span class="header-section-number">1.13.1</span> </h3>
+<p>Every Shiny app has a webpage that the user visits, and behind this webpage there is a computer that serves this webpage by running R.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/recap-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section-5" class="level3" data-number="1.13.2">
+<h3 data-number="1.13.2" class="anchored" data-anchor-id="section-5"><span class="header-section-number">1.13.2</span> </h3>
+<p>When running your app locally, the computer serving your app is your computer.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/recap-2.png" class="img-fluid figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section-6" class="level3" data-number="1.13.3">
+<h3 data-number="1.13.3" class="anchored" data-anchor-id="section-6"><span class="header-section-number">1.13.3</span> </h3>
+<p>When your app is deployed, the computer serving your app is a web server.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/recap-3.png" class="img-fluid figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section-7" class="level3" data-number="1.13.4">
+<h3 data-number="1.13.4" class="anchored" data-anchor-id="section-7"><span class="header-section-number">1.13.4</span> </h3>
+<p>Each app is comprised of two components, a UI and a server.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/recap-4.png" class="img-fluid figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>The UI is ultimately built with HTML, CSS, and JavaScript. However, you as the Shiny developer do not need to know these languages. Shiny lets R users write user interfaces using a simple, familiar-looking API. However there are no limits to customization for advanced users who are familiar with these languages.</p></li>
+<li><p>The server function contains the instructions to map user inputs to outputs.</p></li>
+</ul>
+<p>I often think of the UI as containing syntax specific to Shiny, and the server as containing R code you might already be familiar with – with some Shiny functions added to achieve reactivity.</p>
+</section>
+<section id="tip-change-display" class="level3" data-number="1.13.5">
+<h3 data-number="1.13.5" class="anchored" data-anchor-id="tip-change-display"><span class="header-section-number">1.13.5</span> Tip: Change display</h3>
+<p>In this tutorial you will be developing your apps in RStudio Cloud projects, but once you’re done with the tutorial you might consider developing your apps in the RStudio IDE, which has some some handy-dandy functionality for running and viewing your apps.</p>
+<p>RStudio will automatically recognize R scripts that contain <code>ui</code> and <code>server</code> components and that end with a call to the <code>shinyApp()</code> function and will make available the Run App button. You can choose to run your app in a new window, or in the viewer pane of your RStudio window.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/recap-5.png" class="img-fluid figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="tip-close-an-app" class="level3" data-number="1.13.6">
+<h3 data-number="1.13.6" class="anchored" data-anchor-id="tip-close-an-app"><span class="header-section-number">1.13.6</span> Tip: Close an app</h3>
+<p>When you are done with an app, you can terminate the session by clicking the red stop button in your viewer pane.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/recap-6.png" class="img-fluid figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section-8" class="level3" data-number="1.13.7">
+<h3 data-number="1.13.7" class="anchored" data-anchor-id="section-8"><span class="header-section-number">1.13.7</span> </h3>
+<p>That’s all for this module! In the next module we discuss inputs, outputs, and rendering functions in further detail.</p>
+
+
+
+</section>
+</section>
+</main> <!-- /main -->
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    setTimeout(function() {
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./intro.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./hello-ui.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">User interface (UI)</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+</body></html>

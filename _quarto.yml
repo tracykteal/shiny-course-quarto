@@ -9,9 +9,15 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
-    - hello.qmd
-    - flow.qmd
-    - reactivity.qmd
+    - part: "Hello Shiny"
+      chapters:
+        - hello.qmd
+        - hello-ui.qmd
+        - hello-server.qmd
+        - hello-recap.qmd
+    - part: flow.qmd
+    - part: reactivity.qmd
+    - part: ui.qmd
     - references.qmd
 
 bibliography: references.bib
