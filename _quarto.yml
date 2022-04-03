@@ -1,5 +1,7 @@
 project:
   type: book
+  output-dir: docs
+  always_allow_html: true
 
 book:
   title: "Shiny Getting Started"

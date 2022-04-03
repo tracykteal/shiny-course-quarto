@@ -1,3 +1,6 @@
+---
+always_allow_html: true
+---
 
 # Hello Shiny
 
@@ -136,7 +139,10 @@ Alright, time for some practice!
 
 Which of these is not generally a part of the Shiny app architecture?" - A function that installs an R package - User interface - Server function - A function that creates Shiny app objects
 
+<details>
+<summary>Click for Answer</summary>
 Answer: A function that installs an R package. You don't want to reinstall the package every time you run your app, so you should do this once in your console instead of within your Shiny app
+</details>
 
 ### Practice: First peek under the hood
 
